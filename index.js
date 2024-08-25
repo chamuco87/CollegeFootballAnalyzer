@@ -26,27 +26,27 @@ const { Console } = require('console');
             //await getSchedulePerYearDetails();
             //await getGamesPerYearDetails();
 
-            // var years = [2023, 2022, 2021, 2020];
-            // for (let index = 0; index < years.length; index++) {
-            //     const yearTo = years[index];
-            //     await prepareData(yearTo);
-            //     await formatGamesPerTeam(yearTo);
-            //     await generateAverages(yearTo);
-            // }
-
-            // var years = [2022, 2021, 2020];
-            // for (let index = 0; index < years.length; index++) {
-            //     const yearTo = years[index];
-            //     var toBeEvaluated = false;
-            //     await generateMLRecords(yearTo, toBeEvaluated);
-            // }
-
-            var years = [2023];
+            var years = [2017];//[2023, 2022, 2021, 2020];
             for (let index = 0; index < years.length; index++) {
                 const yearTo = years[index];
-                var toBeEvaluated = true;
+                await prepareData(yearTo);
+                await formatGamesPerTeam(yearTo);
+                await generateAverages(yearTo);
+            }
+
+            var years = [2022, 2021, 2020, 2019, 2018, 2017];
+            for (let index = 0; index < years.length; index++) {
+                const yearTo = years[index];
+                var toBeEvaluated = false;
                 await generateMLRecords(yearTo, toBeEvaluated);
             }
+
+            // var years = [2023];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     var toBeEvaluated = true;
+            //     await generateMLRecords(yearTo, toBeEvaluated);
+            // }
             
 
 
@@ -337,48 +337,46 @@ const { Console } = require('console');
                     teamRecord.key = team + "_" + game.date;
                     var isOffense = game.homeTeam == team ? "home" : "away";
                     var transformmedRecords = transformPropertyNames(game, isOffense);
-                    teamRecord.defAllowedPoints = transformmedRecords.defenseFinalScore;
-                    teamRecord.defAllowedFirstDowns = transformmedRecords.defenseFirstDowns;
-                    teamRecord.defCreatedFumbles = transformmedRecords.defenseFumbles;
-                    teamRecord.defInterceptions = transformmedRecords.defenseLost;
-                    teamRecord.defAllowedPassAttemps = transformmedRecords.defensePassAtts;
-                    teamRecord.defAllowedPassCpm = transformmedRecords.defensePassCmp;
-                    teamRecord.defAllowedPassTD = transformmedRecords.defensepassTd;
-                    teamRecord.defAllowedPassYD = transformmedRecords.defensePassYds;
-                    teamRecord.defCreatedPenalties = transformmedRecords.defensePenalties;
-                    teamRecord.defCreatedPenaltiesYDs = transformmedRecords.defensePenaltiesYards;
-                    if(isNaN(transformmedRecords.defenseQ1)){
-                        var stopHere = "";
-                    }
+                    teamRecord.defAllowedPoints = transformmedRecords.defenseFinalScore == null || isNaN(transformmedRecords.defenseFinalScore) ? 0 : transformmedRecords.defenseFinalScore;
+                    teamRecord.defAllowedFirstDowns = transformmedRecords.defenseFirstDowns == null || isNaN(transformmedRecords.defenseFirstDowns) ? 0 : transformmedRecords.defenseFirstDowns;
+                    teamRecord.defCreatedFumbles = transformmedRecords.defenseFumbles == null || isNaN(transformmedRecords.defenseFumbles) ? 0 : transformmedRecords.defenseFumbles;
+                    teamRecord.defInterceptions = transformmedRecords.defenseLost == null || isNaN(transformmedRecords.defenseLost) ? 0 : transformmedRecords.defenseLost;
+                    teamRecord.defAllowedPassAttemps = transformmedRecords.defensePassAtts == null || isNaN(transformmedRecords.defensePassAtts) ? 0 : transformmedRecords.defensePassAtts;
+                    teamRecord.defAllowedPassCpm = transformmedRecords.defensePassCmp == null || isNaN(transformmedRecords.defensePassCmp) ? 0 : transformmedRecords.defensePassCmp;
+                    teamRecord.defAllowedPassTD = transformmedRecords.defensepassTd == null || isNaN(transformmedRecords.defensepassTd) ? 0 : transformmedRecords.defensepassTd;
+                    teamRecord.defAllowedPassYD = transformmedRecords.defensePassYds == null || isNaN(transformmedRecords.defensePassYds) ? 0 : transformmedRecords.defensePassYds;
+                    teamRecord.defCreatedPenalties = transformmedRecords.defensePenalties == null || isNaN(transformmedRecords.defensePenalties) ? 0 : transformmedRecords.defensePenalties;
+                    teamRecord.defCreatedPenaltiesYDs = transformmedRecords.defensePenaltiesYards == null || isNaN(transformmedRecords.defensePenaltiesYards) ? 0 : transformmedRecords.defensePenaltiesYards;
+
                     teamRecord.defAllowedPointsQ1 = transformmedRecords.defenseQ1 == null || isNaN(transformmedRecords.defenseQ1) ? 0 : transformmedRecords.defenseQ1;
                     teamRecord.defAllowedPointsQ2 = transformmedRecords.defenseQ2 == null || isNaN(transformmedRecords.defenseQ2) ? 0 : transformmedRecords.defenseQ2;
                     teamRecord.defAllowedPointsQ3 = transformmedRecords.defenseQ3 == null || isNaN(transformmedRecords.defenseQ3) ? 0 : transformmedRecords.defenseQ3;
                     teamRecord.defAllowedPointsQ4 = transformmedRecords.defenseQ4 == null || isNaN(transformmedRecords.defenseQ4) ? 0 : transformmedRecords.defenseQ4;
-                    teamRecord.defAllowedRushAttemps = transformmedRecords.defenseRushAtts;
-                    teamRecord.defAllowedRushTD = transformmedRecords.defenseRushTd;
-                    teamRecord.defAllowedRushYD = transformmedRecords.defenseRushYds;
-                    teamRecord.defAllowedTotalYD = transformmedRecords.defenseTotalYards;
-                    teamRecord.defTurnovers = transformmedRecords.defenseTurnovers;
+                    teamRecord.defAllowedRushAttemps = transformmedRecords.defenseRushAtts == null || isNaN(transformmedRecords.defenseRushAtts) ? 0 : transformmedRecords.defenseRushAtts;
+                    teamRecord.defAllowedRushTD = transformmedRecords.defenseRushTd == null || isNaN(transformmedRecords.defenseRushTd) ? 0 : transformmedRecords.defenseRushTd;
+                    teamRecord.defAllowedRushYD = transformmedRecords.defenseRushYds == null || isNaN(transformmedRecords.defenseRushYds) ? 0 : transformmedRecords.defenseRushYds;
+                    teamRecord.defAllowedTotalYD = transformmedRecords.defenseTotalYards == null || isNaN(transformmedRecords.defenseTotalYards) ? 0 : transformmedRecords.defenseTotalYards;
+                    teamRecord.defTurnovers = transformmedRecords.defenseTurnovers == null || isNaN(transformmedRecords.defenseTurnovers) ? 0 : transformmedRecords.defenseTurnovers;
 
-                    teamRecord.offensePoints = transformmedRecords.offenseFinalScore;
-                    teamRecord.offenseFirstDowns = transformmedRecords.offenseFirstDowns;
-                    teamRecord.offenseCreatedFumbles = transformmedRecords.offenseFumbles;
-                    teamRecord.offenseInterceptions = transformmedRecords.offenseLost;
-                    teamRecord.offensePassAttemps = transformmedRecords.offensePassAtts;
-                    teamRecord.offensePassCpm = transformmedRecords.offensePassCmp;
-                    teamRecord.offensePassTD = transformmedRecords.offensepassTd;
-                    teamRecord.offensePassYD = transformmedRecords.offensePassYds;
-                    teamRecord.offenseCreatedPenalties = transformmedRecords.offensePenalties;
-                    teamRecord.offenseCreatedPenaltiesYDs = transformmedRecords.offensePenaltiesYards;
+                    teamRecord.offensePoints = transformmedRecords.offenseFinalScore == null || isNaN(transformmedRecords.offenseFinalScore) ? 0 : transformmedRecords.offenseFinalScore;
+                    teamRecord.offenseFirstDowns = transformmedRecords.offenseFirstDowns == null || isNaN(transformmedRecords.offenseFirstDowns) ? 0 : transformmedRecords.offenseFirstDowns;
+                    teamRecord.offenseCreatedFumbles = transformmedRecords.offenseFumbles == null || isNaN(transformmedRecords.offenseFumbles) ? 0 : transformmedRecords.offenseFumbles;
+                    teamRecord.offenseInterceptions = transformmedRecords.offenseLost == null || isNaN(transformmedRecords.offenseLost) ? 0 : transformmedRecords.offenseLost;
+                    teamRecord.offensePassAttemps = transformmedRecords.offensePassAtts == null || isNaN(transformmedRecords.offensePassAtts) ? 0 : transformmedRecords.offensePassAtts;
+                    teamRecord.offensePassCpm = transformmedRecords.offensePassCmp == null || isNaN(transformmedRecords.offensePassCmp) ? 0 : transformmedRecords.offensePassCmp;
+                    teamRecord.offensePassTD = transformmedRecords.offensepassTd == null || isNaN(transformmedRecords.offensepassTd) ? 0 : transformmedRecords.offensepassTd;
+                    teamRecord.offensePassYD = transformmedRecords.offensePassYds == null || isNaN(transformmedRecords.offensePassYds) ? 0 : transformmedRecords.offensePassYds;
+                    teamRecord.offenseCreatedPenalties = transformmedRecords.offensePenalties == null || isNaN(transformmedRecords.defenseQ1) ? 0 : transformmedRecords.offensePenalties;
+                    teamRecord.offenseCreatedPenaltiesYDs = transformmedRecords.offensePenaltiesYards == null || isNaN(transformmedRecords.defenseQ1) ? 0 : transformmedRecords.offensePenaltiesYards;
                     teamRecord.offensePointsQ1 = transformmedRecords.offenseQ1 == null || isNaN(transformmedRecords.offenseQ1)  ? 0 : transformmedRecords.offenseQ1;
                     teamRecord.offensePointsQ2 = transformmedRecords.offenseQ2 == null || isNaN(transformmedRecords.offenseQ2)  ? 0 : transformmedRecords.offenseQ2;
                     teamRecord.offensePointsQ3 = transformmedRecords.offenseQ3 == null || isNaN(transformmedRecords.offenseQ3)  ? 0 : transformmedRecords.offenseQ3;
                     teamRecord.offensePointsQ4 = transformmedRecords.offenseQ4 == null || isNaN(transformmedRecords.offenseQ4)  ? 0 : transformmedRecords.offenseQ4;
-                    teamRecord.offenseRushAttemps = transformmedRecords.offenseRushAtts;
-                    teamRecord.offenseRushTD = transformmedRecords.offenseRushTd;
-                    teamRecord.offenseRushYD = transformmedRecords.offenseRushYds;
-                    teamRecord.offenseTotalYD = transformmedRecords.offenseTotalYards;
-                    teamRecord.offenseTurnovers = transformmedRecords.offenseTurnovers;
+                    teamRecord.offenseRushAttemps = transformmedRecords.offenseRushAtts == null || isNaN(transformmedRecords.offenseRushAtts) ? 0 : transformmedRecords.offenseRushAtts;
+                    teamRecord.offenseRushTD = transformmedRecords.offenseRushTd == null || isNaN(transformmedRecords.offenseRushTd) ? 0 : transformmedRecords.offenseRushTd;
+                    teamRecord.offenseRushYD = transformmedRecords.offenseRushYds == null || isNaN(transformmedRecords.offenseRushYds) ? 0 : transformmedRecords.offenseRushYds;
+                    teamRecord.offenseTotalYD = transformmedRecords.offenseTotalYards == null || isNaN(transformmedRecords.offenseTotalYards) ? 0 : transformmedRecords.offenseTotalYards;
+                    teamRecord.offenseTurnovers = transformmedRecords.offenseTurnovers == null || isNaN(transformmedRecords.offenseTurnovers) ? 0 : transformmedRecords.offenseTurnovers;
                     formatedRecords.push(teamRecord);
                     await save("formatedRecords",formatedRecords, function(){}, "replace" ,"AnalysisData/"+yearToProcess);
                     var stopHere = "";
