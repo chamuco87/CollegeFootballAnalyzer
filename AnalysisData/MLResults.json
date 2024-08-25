@@ -1,0 +1,854 @@
+{
+    "/content/NewGames/MLDataToEvaluate.json": [
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "OleMiss@Furman@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.92,
+            "probability_lr": 0.971354993163601,
+            "average_probability": 0.9456774965818004,
+            "standard_deviation": 0.025677496581800463
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Louisiana@GramblingState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.91,
+            "probability_lr": 0.9807136283720934,
+            "average_probability": 0.9453568141860467,
+            "standard_deviation": 0.03535681418604669
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "SMU@Nevada@Aug_24_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.9,
+            "probability_lr": 0.9111915995645332,
+            "average_probability": 0.9055957997822666,
+            "standard_deviation": 0.005595799782266597
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "UCF@NewHampshire@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.83,
+            "probability_lr": 0.9372418191146236,
+            "average_probability": 0.8836209095573118,
+            "standard_deviation": 0.0536209095573118
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "UAB@AlcornState@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.86,
+            "probability_lr": 0.9017454908879503,
+            "average_probability": 0.8808727454439751,
+            "standard_deviation": 0.02087274544397516
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "UTSA@KennesawState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.8,
+            "probability_lr": 0.9467936330035291,
+            "average_probability": 0.8733968165017646,
+            "standard_deviation": 0.07339681650176455
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "MurrayState@Missouri@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.75,
+            "probability_lr": 0.9917830922062034,
+            "average_probability": 0.8708915461031017,
+            "standard_deviation": 0.12089154610310171
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "PennState@WestVirginia@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.83,
+            "probability_lr": 0.9005002812364882,
+            "average_probability": 0.865250140618244,
+            "standard_deviation": 0.03525014061824411
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "JamesMadison@Charlotte@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.8,
+            "probability_lr": 0.8998857143658107,
+            "average_probability": 0.8499428571829053,
+            "standard_deviation": 0.04994285718290531
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "UCLA@Hawaii@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.82,
+            "probability_lr": 0.8700240562595112,
+            "average_probability": 0.8450120281297555,
+            "standard_deviation": 0.025012028129755618
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "BowlingGreen@Fordham@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.79,
+            "probability_lr": 0.8832032402497678,
+            "average_probability": 0.8366016201248839,
+            "standard_deviation": 0.04660162012488389
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Temple@Oklahoma@Aug_30_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.74,
+            "probability_lr": 0.9309961511142588,
+            "average_probability": 0.8354980755571294,
+            "standard_deviation": 0.09549807555712941
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Nevada@Troy@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.79,
+            "probability_lr": 0.8783086318097265,
+            "average_probability": 0.8341543159048632,
+            "standard_deviation": 0.04415431590486324
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Ohio@Syracuse@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.76,
+            "probability_lr": 0.8973160545702897,
+            "average_probability": 0.8286580272851449,
+            "standard_deviation": 0.06865802728514486
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Wyoming@ArizonaState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.75,
+            "probability_lr": 0.9014139652118378,
+            "average_probability": 0.8257069826059189,
+            "standard_deviation": 0.0757069826059189
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "TexasChristian@Stanford@Aug_30_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.75,
+            "probability_lr": 0.898479610099636,
+            "average_probability": 0.824239805049818,
+            "standard_deviation": 0.07423980504981798
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Duquesne@Toledo@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.65,
+            "probability_lr": 0.9930184399791036,
+            "average_probability": 0.8215092199895517,
+            "standard_deviation": 0.17150921998955176
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "PortlandState@WashingtonState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.64,
+            "probability_lr": 0.9967405042925821,
+            "average_probability": 0.818370252146291,
+            "standard_deviation": 0.17837025214629104
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "ColoradoState@Texas@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.69,
+            "probability_lr": 0.9306868328649736,
+            "average_probability": 0.8103434164324868,
+            "standard_deviation": 0.1203434164324868
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Akron@OhioState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.65,
+            "probability_lr": 0.9524299727093084,
+            "average_probability": 0.8012149863546543,
+            "standard_deviation": 0.1512149863546542
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Bethune-Cookman@SouthFlorida@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.67,
+            "probability_lr": 0.9158263941506906,
+            "average_probability": 0.7929131970753454,
+            "standard_deviation": 0.12291319707534526
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "VirginiaTech@Vanderbilt@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.72,
+            "probability_lr": 0.8629421190167381,
+            "average_probability": 0.791471059508369,
+            "standard_deviation": 0.07147105950836907
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "LSU@USC@Sep_1_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.7,
+            "probability_lr": 0.8637585775702444,
+            "average_probability": 0.7818792887851223,
+            "standard_deviation": 0.08187928878512224
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Pitt@KentState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.72,
+            "probability_lr": 0.8372642309927397,
+            "average_probability": 0.7786321154963698,
+            "standard_deviation": 0.058632115496369874
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "BYU@SouthernIllinois@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.78,
+            "probability_lr": 0.7745797624360411,
+            "average_probability": 0.7772898812180206,
+            "standard_deviation": 0.0027101187819794648
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "JacksonState@Louisiana-Monroe@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.61,
+            "probability_lr": 0.9368940985038576,
+            "average_probability": 0.7734470492519288,
+            "standard_deviation": 0.16344704925192882
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "EasternMichigan@Massachusetts@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.65,
+            "probability_lr": 0.8901168237311787,
+            "average_probability": 0.7700584118655893,
+            "standard_deviation": 0.12005841186558935
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NorthCarolina@Minnesota@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.77,
+            "probability_lr": 0.7625222130388756,
+            "average_probability": 0.7662611065194378,
+            "standard_deviation": 0.003738893480562222
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "DelawareState@Hawaii@Aug_25_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.63,
+            "probability_lr": 0.8962561438217871,
+            "average_probability": 0.7631280719108935,
+            "standard_deviation": 0.13312807191089354
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "FresnoState@Michigan@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.61,
+            "probability_lr": 0.9092478169199972,
+            "average_probability": 0.7596239084599986,
+            "standard_deviation": 0.14962390845999862
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Georgia@Clemson@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.81,
+            "probability_lr": 0.695560148113184,
+            "average_probability": 0.752780074056592,
+            "standard_deviation": 0.05721992594340802
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Lafayette@Buffalo@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.59,
+            "probability_lr": 0.9076970440763792,
+            "average_probability": 0.7488485220381895,
+            "standard_deviation": 0.1588485220381896
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Connecticut@Maryland@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.63,
+            "probability_lr": 0.8665529950775073,
+            "average_probability": 0.7482764975387537,
+            "standard_deviation": 0.11827649753875363
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Lamar@TexasState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.58,
+            "probability_lr": 0.9153596729683996,
+            "average_probability": 0.7476798364841998,
+            "standard_deviation": 0.16767983648419982
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "EasternKentucky@MississippiState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.71,
+            "probability_lr": 0.7803341444424754,
+            "average_probability": 0.7451670722212377,
+            "standard_deviation": 0.035167072221237716
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Richmond@Virginia@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.53,
+            "probability_lr": 0.9357776787289291,
+            "average_probability": 0.7328888393644646,
+            "standard_deviation": 0.20288883936446456
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "CentralConnecticutState@CentralMichigan@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.66,
+            "probability_lr": 0.792670482477023,
+            "average_probability": 0.7263352412385116,
+            "standard_deviation": 0.06633524123851148
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "BoiseState@GeorgiaSouthern@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.69,
+            "probability_lr": 0.7598322369148492,
+            "average_probability": 0.7249161184574247,
+            "standard_deviation": 0.03491611845742465
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "IdahoState@OregonState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.61,
+            "probability_lr": 0.834650067163595,
+            "average_probability": 0.7223250335817974,
+            "standard_deviation": 0.11232503358179752
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "SoutheasternLouisiana@Tulane@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.62,
+            "probability_lr": 0.8210917453607315,
+            "average_probability": 0.7205458726803657,
+            "standard_deviation": 0.10054587268036574
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "WesternMichigan@Wisconsin@Aug_30_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.63,
+            "probability_lr": 0.803753686984453,
+            "average_probability": 0.7168768434922266,
+            "standard_deviation": 0.08687684349222652
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NorfolkState@EastCarolina@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.61,
+            "probability_lr": 0.8235624409200576,
+            "average_probability": 0.7167812204600288,
+            "standard_deviation": 0.1067812204600288
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NorthTexas@SouthAlabama@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.57,
+            "probability_lr": 0.8492219866225384,
+            "average_probability": 0.7096109933112692,
+            "standard_deviation": 0.13961099331126925
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "TexasA&M-Commerce@SanDiegoState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.59,
+            "probability_lr": 0.8124089177823229,
+            "average_probability": 0.7012044588911615,
+            "standard_deviation": 0.11120445889116148
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "RobertMorris@UtahState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.61,
+            "probability_lr": 0.7886283464968349,
+            "average_probability": 0.6993141732484174,
+            "standard_deviation": 0.08931417324841745
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Howard@Rutgers@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.57,
+            "probability_lr": 0.8154446088469116,
+            "average_probability": 0.6927223044234558,
+            "standard_deviation": 0.12272230442345583
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Bucknell@Navy@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.61,
+            "probability_lr": 0.7682804354821787,
+            "average_probability": 0.6891402177410894,
+            "standard_deviation": 0.07914021774108937
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "CoastalCarolina@JacksonvilleState@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.55,
+            "probability_lr": 0.8177386153894509,
+            "average_probability": 0.6838693076947255,
+            "standard_deviation": 0.13386930769472544
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "SouthernMississippi@Kentucky@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.53,
+            "probability_lr": 0.8190488529520161,
+            "average_probability": 0.6745244264760081,
+            "standard_deviation": 0.14452442647600805
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "TarletonState@Baylor@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.6,
+            "probability_lr": 0.7396234004211124,
+            "average_probability": 0.6698117002105561,
+            "standard_deviation": 0.06981170021055622
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "FloridaInternational@Indiana@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.61,
+            "probability_lr": 0.719615020399171,
+            "average_probability": 0.6648075101995855,
+            "standard_deviation": 0.05480751019958552
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "CentralArkansas@ArkansasState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.59,
+            "probability_lr": 0.7372196040981178,
+            "average_probability": 0.6636098020490588,
+            "standard_deviation": 0.07360980204905893
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "California-Davis@California@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.58,
+            "probability_lr": 0.7333648103474073,
+            "average_probability": 0.6566824051737037,
+            "standard_deviation": 0.07668240517370367
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "MissouriState@BallState@Sep_7_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.5,
+            "probability_lr": 0.8080341843956591,
+            "average_probability": 0.6540170921978296,
+            "standard_deviation": 0.15401709219782955
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NorthwesternState@Tulsa@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.55,
+            "probability_lr": 0.739829145777699,
+            "average_probability": 0.6449145728888495,
+            "standard_deviation": 0.09491457288884947
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Tennessee-Martin@KansasState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.55,
+            "probability_lr": 0.7218019944818119,
+            "average_probability": 0.635900997240906,
+            "standard_deviation": 0.08590099724090594
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Miami(FL)@Florida@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.74,
+            "probability_lr": 0.5317249003940678,
+            "average_probability": 0.6358624501970339,
+            "standard_deviation": 0.10413754980296608
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "TexasA&M@NotreDame@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.57,
+            "probability_lr": 0.6996913552147662,
+            "average_probability": 0.6348456776073831,
+            "standard_deviation": 0.06484567760738313
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "KentState@Pitt@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.51,
+            "probability_lr": 0.7368956232492072,
+            "average_probability": 0.6234478116246036,
+            "standard_deviation": 0.1134478116246036
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "USC@LSU@Sep_1_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.63,
+            "probability_lr": 0.6110754755412526,
+            "average_probability": 0.6205377377706263,
+            "standard_deviation": 0.009462262229373686
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "StonyBrook@Marshall@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.62,
+            "probability_lr": 0.5987710458593904,
+            "average_probability": 0.6093855229296952,
+            "standard_deviation": 0.010614477070304773
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "WesternKentucky@Alabama@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.66,
+            "probability_lr": 0.5549108539944891,
+            "average_probability": 0.6074554269972445,
+            "standard_deviation": 0.052544573002755446
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "SouthernUtah@Utah@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.52,
+            "probability_lr": 0.687172559451071,
+            "average_probability": 0.6035862797255356,
+            "standard_deviation": 0.0835862797255355
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NichollsState@LouisianaTech@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.53,
+            "probability_lr": 0.6545390572374332,
+            "average_probability": 0.5922695286187166,
+            "standard_deviation": 0.062269528618716596
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "EasternIllinois@Illinois@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.61,
+            "probability_lr": 0.5729539201847134,
+            "average_probability": 0.5914769600923566,
+            "standard_deviation": 0.018523039907643313
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "SacramentoState@SanJoseState@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.58,
+            "probability_lr": 0.5824433530256062,
+            "average_probability": 0.5812216765128031,
+            "standard_deviation": 0.0012216765128031382
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Towson@Cincinnati@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.6,
+            "probability_lr": 0.5617785536435194,
+            "average_probability": 0.5808892768217597,
+            "standard_deviation": 0.019110723178240308
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Merrimack@AirForce@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.55,
+            "probability_lr": 0.5967976130959949,
+            "average_probability": 0.5733988065479975,
+            "standard_deviation": 0.02339880654799742
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NorthDakota@IowaState@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.53,
+            "probability_lr": 0.6073941048279696,
+            "average_probability": 0.5686970524139848,
+            "standard_deviation": 0.0386970524139848
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "SamHouston@Rice@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.53,
+            "probability_lr": 0.6073244911046469,
+            "average_probability": 0.5686622455523235,
+            "standard_deviation": 0.03866224555232345
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "IndianaState@Purdue@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.62,
+            "probability_lr": 0.5118420764808806,
+            "average_probability": 0.5659210382404403,
+            "standard_deviation": 0.054078961759559674
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Miami(OH)@Northwestern@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.58,
+            "probability_lr": 0.5488083440776079,
+            "average_probability": 0.564404172038804,
+            "standard_deviation": 0.015595827961196018
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Chattanooga@Tennessee@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.54,
+            "probability_lr": 0.5673751708277516,
+            "average_probability": 0.5536875854138759,
+            "standard_deviation": 0.013687585413875769
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "NorthCarolinaA&T@WakeForest@Aug_29_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.56,
+            "probability_lr": 0.5458714270443679,
+            "average_probability": 0.552935713522184,
+            "standard_deviation": 0.007064286477816095
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "AlabamaA&M@Auburn@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 0,
+            "probability_rf": 0.5,
+            "probability_lr": 0.5931907908006085,
+            "average_probability": 0.5465953954003042,
+            "standard_deviation": 0.046595395400304274
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "WesternIllinois@NorthernIllinois@Aug_31_2024",
+            "target": "isHomeWinner",
+            "prediction": 1,
+            "probability_rf": 0.54,
+            "probability_lr": 0.5028578079003795,
+            "average_probability": 0.5214289039501898,
+            "standard_deviation": 0.018571096049810276
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "PennState@WestVirginia@Aug_31_2024",
+            "target": "scoreDiff",
+            "prediction": 3,
+            "probability_rf": 0.11,
+            "probability_lr": 0.4364558472057441,
+            "average_probability": 0.27322792360287207,
+            "standard_deviation": 0.16322792360287205
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "CoastalCarolina@JacksonvilleState@Aug_29_2024",
+            "target": "scoreDiff",
+            "prediction": 2,
+            "probability_rf": 0.15,
+            "probability_lr": 0.3589034728781264,
+            "average_probability": 0.2544517364390632,
+            "standard_deviation": 0.1044517364390632
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "FresnoState@Michigan@Aug_31_2024",
+            "target": "scoreDiff",
+            "prediction": 6,
+            "probability_rf": 0.13,
+            "probability_lr": 0.27404394298917223,
+            "average_probability": 0.20202197149458612,
+            "standard_deviation": 0.07202197149458611
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "CentralConnecticutState@CentralMichigan@Aug_29_2024",
+            "target": "scoreDiff",
+            "prediction": 41,
+            "probability_rf": 0.13,
+            "probability_lr": 0.26757065797920676,
+            "average_probability": 0.19878532898960338,
+            "standard_deviation": 0.06878532898960338
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "BowlingGreen@Fordham@Aug_29_2024",
+            "target": "scoreDiff",
+            "prediction": 30,
+            "probability_rf": 0.11,
+            "probability_lr": 0.28646509055546965,
+            "average_probability": 0.19823254527773482,
+            "standard_deviation": 0.08823254527773482
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Connecticut@Maryland@Aug_31_2024",
+            "target": "scoreDiff",
+            "prediction": 2,
+            "probability_rf": 0.11,
+            "probability_lr": 0.27855218013699246,
+            "average_probability": 0.19427609006849622,
+            "standard_deviation": 0.08427609006849622
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Louisiana@GramblingState@Aug_31_2024",
+            "target": "scoreDiff",
+            "prediction": 37,
+            "probability_rf": 0.12,
+            "probability_lr": 0.2430683167501237,
+            "average_probability": 0.18153415837506184,
+            "standard_deviation": 0.06153415837506185
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "UCF@NewHampshire@Aug_29_2024",
+            "target": "scoreDiff",
+            "prediction": 30,
+            "probability_rf": 0.07,
+            "probability_lr": 0.24950476713815373,
+            "average_probability": 0.15975238356907687,
+            "standard_deviation": 0.08975238356907686
+        },
+        {
+            "file": "/content/NewGames/MLDataToEvaluate.json",
+            "key": "Wyoming@ArizonaState@Aug_31_2024",
+            "target": "scoreDiff",
+            "prediction": 2,
+            "probability_rf": 0.1,
+            "probability_lr": 0.19141052325887434,
+            "average_probability": 0.14570526162943717,
+            "standard_deviation": 0.045705261629437166
+        }
+    ]
+}
