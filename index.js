@@ -26,7 +26,7 @@ const { Console } = require('console');
             //await getSchedulePerYearDetails();
             //await getGamesPerYearDetails();
 
-            // var years = [2017];//[2023, 2022, 2021, 2020];
+            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     await prepareData(yearTo);
@@ -34,21 +34,21 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            // var years = [2022, 2021, 2020, 2019, 2018, 2017];
-            // for (let index = 0; index < years.length; index++) {
-            //     const yearTo = years[index];
-            //     var toBeEvaluated = false;
-            //     await generateMLRecords(yearTo, toBeEvaluated);
-            // }
+            var years = [ 2022, 2021, 2020, 2019, 2018, 2017, 2016];
+            for (let index = 0; index < years.length; index++) {
+                const yearTo = years[index];
+                var toBeEvaluated = false;
+                await generateMLRecords(yearTo, toBeEvaluated);
+            }
 
-            var years = [2024];
+            var years = [2023];
             for (let index = 0; index < years.length; index++) {
                 const yearTo = years[index];
                 var toBeEvaluated = true;
                 await generateMLRecords(yearTo, toBeEvaluated);
             }
             
-
+            //await enrichMLResults(2023);
 
           } 
           catch(Ex){
@@ -98,6 +98,34 @@ const { Console } = require('console');
                 }
             }
             return finalObject;
+        }
+
+        async function enrichMLResults(yearToProcess)
+        {
+            var allMLRecords = await load(yearToProcess+"AllMLResults","AnalysisData");
+            var selectionsMLRecords = await load(yearToProcess+"SelectionsMLResults", "AnalysisData");
+            var yearResults = await load("gameRecords","AnalysisData/"+yearToProcess);
+            allMLRecords.forEach(record => {
+                var sel = yearResults.filter(function(item){return item.key == record.key});
+                if(sel.length > 0)
+                {
+                    record.isHomeWinner = sel[0].isHomeWinner;
+                    record.scoreDiff = sel[0].scoreDiff;
+                }
+            });
+
+            selectionsMLRecords.forEach(record => {
+                var sel = yearResults.filter(function(item){return item.key == record.key});
+                if(sel.length > 0)
+                {
+                    record.isHomeWinner = sel[0].isHomeWinner;
+                    record.scoreDiff = sel[0].scoreDiff;
+                }
+            });
+
+            await save(yearToProcess+"AllMLResults", allMLRecords, function(){},"replace" ,"AnalysisData");
+            await save(yearToProcess+"SelectionsMLResults", selectionsMLRecords, function(){},"replace", "AnalysisData");
+
         }
 
         async function generateMLRecords(yearToProcess, toBeEvaluated)
@@ -247,10 +275,10 @@ const { Console } = require('console');
                                                     }
                                                     MLRecord.homeTeam = gameRecord[0].homeTeam;
                                                     MLRecord.awayTeam = gameRecord[0].awayTeam;
-                                                    var homeRecords = gameRecord[0].homeTeam == selectedGameResult.team ? selectedGameResult : opponentGameResult;
-                                                    MLRecord = appendProperties(MLRecord, homeRecords, "home");
-                                                    var awayRecords = gameRecord[0].awayTeam == opponentGameResult.team ? opponentGameResult : selectedGameResult;
-                                                    MLRecord = appendProperties(MLRecord, awayRecords, "away");
+                                                    // var homeRecords = gameRecord[0].homeTeam == selectedGameResult.team ? selectedGameResult : opponentGameResult;
+                                                    // MLRecord = appendProperties(MLRecord, homeRecords, "home");
+                                                    // var awayRecords = gameRecord[0].awayTeam == opponentGameResult.team ? opponentGameResult : selectedGameResult;
+                                                    // MLRecord = appendProperties(MLRecord, awayRecords, "away");
                                                     var homeAverageRecords = gameRecord[0].homeTeam == selectedAverage[0].team ? selectedAverage[0] : opponentAverage[0];
                                                     MLRecord = appendProperties(MLRecord, homeAverageRecords, "homeAvg");
                                                     var awayAverageRecords = gameRecord[0].awayTeam == opponentAverage[0].team ? opponentAverage[0] : selectedAverage[0];
@@ -778,12 +806,21 @@ const { Console } = require('console');
                         }
                     }
                     catch{}
-                    const searchText2 = "We apologize, but we could not find the page requested by your device";
-                    let paragraph2 = await driver.findElement(By.xpath(`//p[contains(text(), "${searchText2}")]`));
-                    if (paragraph2) {
-                        exceptions.push(url);
-                        await save("exceptions", exceptions, function(){}, "replace", "BaseData");
+                    try{
+                        const searchText2 = "We apologize, but we could not find the page requested by your device";
+                        let paragraph2 = await driver.findElement(By.xpath(`//p[contains(text(), "${searchText2}")]`));
+                        if (paragraph2) {
+                            exceptions.push(url);
+                            await save("exceptions", exceptions, function(){}, "replace", "BaseData");
+                        }
                     }
+                    catch{}
+                    const searchText3 = "Cancelled";
+                        let paragraph2 = await driver.findElement(By.xpath(`//div[contains(text(), "${searchText3}")]`));
+                        if (paragraph2) {
+                            exceptions.push(url);
+                            await save("exceptions", exceptions, function(){}, "replace", "BaseData");
+                        }
                     console.log("Table doesn't exits.");
                     return 1;
                 }
@@ -975,7 +1012,7 @@ const { Console } = require('console');
                     var conferences = [];
                     
                         var isYear = parseInt(year.year_id);
-                        if(!isNaN(isYear) && isYear != 2024){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
+                        if(!isNaN(isYear) && (isYear == 2016 ||isYear == 2015 ||isYear == 2014||isYear == 2013  )){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
                             conferences = await load("conferences", year.year_id);
                             if(conferences.length > 0){
                                 for (let rt = 0; rt < conferences.length; rt++) {

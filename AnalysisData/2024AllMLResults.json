@@ -1,0 +1,2446 @@
+[
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "JamesMadison@Charlotte@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.75
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9159806162771539
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 37,
+                    "probability": 0.3435364677486762
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorfolkState@EastCarolina@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.55
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9244970099882877
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.06
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.20916054180810778
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "FloridaAtlantic@MichiganState@Aug_30_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.62
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8582660953139843
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.15
+                },
+                "LogisticRegression": {
+                    "prediction": 32,
+                    "probability": 0.5635020980892597
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorthAlabama@Memphis@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7009244368646037
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.06
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.5500092131196128
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Bucknell@Navy@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.6
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8289812657269996
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 30,
+                    "probability": 0.2613039889915884
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorthTexas@SouthAlabama@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.62
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8548485164048856
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.14
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.4587469111254166
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SamHouston@Rice@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.55
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5796250948319861
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.14
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.3316640399673571
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Bethune-Cookman@SouthFlorida@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.68
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8655487667419497
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 5,
+                    "probability": 0.18296091041192122
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Temple@Oklahoma@Aug_30_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.73
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.89108184001704
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.13
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.36628502849093136
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SoutheasternLouisiana@Tulane@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.59
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.865514975225871
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 37,
+                    "probability": 0.3288346036790051
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorthwesternState@Tulsa@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.54
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8411602619769487
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.12
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.16477987557499219
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "UAB@AlcornState@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.9
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9690358375744886
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 21,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 31,
+                    "probability": 0.14340491750476175
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "UTSA@KennesawState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.91
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9443261361226425
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 20,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 33,
+                    "probability": 0.6534963461009057
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "BostonCollege@FloridaState@Sep_2_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.67
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5267845630942243
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 6,
+                    "probability": 0.17580004220732995
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "California-Davis@California@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.56
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.846854851126227
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 16,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.242481999832047
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Georgia@Clemson@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.71
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5045109485352282
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 34,
+                    "probability": 0.37942383992545575
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "GeorgiaTech@FloridaState@Aug_24_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.62
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.606304161547575
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 13,
+                    "probability": 0.17347587740758544
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "AustinPeay@Louisville@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.52
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7912693188404936
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 34,
+                    "probability": 0.4310070768263321
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Miami(FL)@Florida@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.65
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5317558692179631
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 9,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 36,
+                    "probability": 0.26266234888485734
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorthCarolina@Minnesota@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.66
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7079046956222083
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 4,
+                    "probability": 0.18865948411520778
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "WesternCarolina@NorthCarolinaState@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.55
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5160967623036065
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.40467695478340276
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Pitt@KentState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.75
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9175165392799556
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.06
+                },
+                "LogisticRegression": {
+                    "prediction": 15,
+                    "probability": 0.18369738204494654
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SMU@Nevada@Aug_24_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.84
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9440559778993887
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 9,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.12396039294298185
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "TexasChristian@Stanford@Aug_30_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.73
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5764391040873194
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 3,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 26,
+                    "probability": 0.20746515715492034
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Ohio@Syracuse@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.81
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6720088676116025
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 11,
+                    "probability": 0.3081601021733874
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Richmond@Virginia@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.56
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9265567797987218
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.4893632552101926
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "VirginiaTech@Vanderbilt@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.77
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.891923553653574
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 3,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.25194691175938205
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorthCarolinaA&T@WakeForest@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.69
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6631843822010465
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.13
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.34700465932690794
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NewMexico@Arizona@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.53
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5598073361621164
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 13,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5958127499463638
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Wyoming@ArizonaState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.77
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.947628071987322
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.13
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.22443474545789147
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Towson@Cincinnati@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.6
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7448565492222132
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.3452807550795232
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Nevada-LasVegas@Houston@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.75
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5313975166118581
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.17518081278306408
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "UCF@NewHampshire@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.92
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9177708926882914
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 19,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 16,
+                    "probability": 0.15105128576439902
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SouthernUtah@Utah@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.7558255821821094
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 6,
+                    "probability": 0.2882944633230219
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "TarletonState@Baylor@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.68
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7813351795367244
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.526544849191023
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "BYU@SouthernIllinois@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.85
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9058619399540587
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 21,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 17,
+                    "probability": 0.22358204517977642
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NorthDakota@IowaState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.54
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7030623983937906
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.3200155881501543
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Tennessee-Martin@KansasState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.54
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5873481461344127
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.4698285080084734
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "AbileneChristian@TexasTech@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.5
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.638729077521452
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 49,
+                    "probability": 0.7081013653612993
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "PennState@WestVirginia@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.75
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8440415787136636
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.12
+                },
+                "LogisticRegression": {
+                    "prediction": 31,
+                    "probability": 0.3084490698229578
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "EasternIllinois@Illinois@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.61
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6204072166283887
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.47134659517695243
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "FloridaInternational@Indiana@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.59
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.7093116334670034
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.14
+                },
+                "LogisticRegression": {
+                    "prediction": 23,
+                    "probability": 0.17990157455857314
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Connecticut@Maryland@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.6
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.772417138149607
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.19076514425557792
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "FresnoState@Michigan@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.61
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8872278669339022
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.15
+                },
+                "LogisticRegression": {
+                    "prediction": 6,
+                    "probability": 0.24442114785169533
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "UTEP@Nebraska@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.5
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.7955964687085654
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.18
+                },
+                "LogisticRegression": {
+                    "prediction": 6,
+                    "probability": 0.3171786387839759
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Miami(OH)@Northwestern@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.65
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6777284027545044
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 13,
+                    "probability": 0.14867644861887314
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Akron@OhioState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.64
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9383585476386709
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 6,
+                    "probability": 0.17869503294090222
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Idaho@Oregon@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.7664068464458972
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 5,
+                    "probability": 0.17820131135159775
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "IndianaState@Purdue@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.52
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5733388573690331
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 30,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.23079136878189055
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Howard@Rutgers@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5881747361123596
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.12
+                },
+                "LogisticRegression": {
+                    "prediction": 9,
+                    "probability": 0.22649804452878983
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "UCLA@Hawaii@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.73
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8634070207289058
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 20,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 31,
+                    "probability": 0.293372020778549
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "USC@LSU@Sep_1_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.5
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6086022803714044
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 27,
+                    "probability": 0.17590886515155688
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "WeberState@Washington@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5154506473434772
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.15
+                },
+                "LogisticRegression": {
+                    "prediction": 5,
+                    "probability": 0.3180403104381915
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "WesternMichigan@Wisconsin@Aug_30_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.59
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8080439198056769
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.19639995540454544
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "CoastalCarolina@JacksonvilleState@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.52
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5886207299519888
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 9,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.2741449034282819
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Campbell@Liberty@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.55
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.5955071328520904
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 13,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.487959732645456
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "NichollsState@LouisianaTech@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.55
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.662157035335837
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 27,
+                    "probability": 0.17959547042889507
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "TennesseeTech@MiddleTennesseeState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.54
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7955946336556436
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.5725986649149759
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SoutheastMissouriState@NewMexicoState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.58
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9033670689522375
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 17,
+                    "probability": 0.21127728463146322
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "WesternKentucky@Alabama@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.57
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9436240185940841
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 3,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 37,
+                    "probability": 0.2800868507998561
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "EasternMichigan@Massachusetts@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.61
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8819768728578776
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.4572982893812689
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "TexasA&M@NotreDame@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.54
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.6520343683537727
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 12,
+                    "probability": 0.27224410945272803
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "MissouriState@BallState@Sep_7_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.53
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9350867318637548
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.5189780463416331
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "BowlingGreen@Fordham@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.77
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9623157113692764
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 30,
+                    "probability": 0.4412107041475403
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Lafayette@Buffalo@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.62
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9347768737976718
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 18,
+                    "probability": 0.37568905468305713
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "CentralConnecticutState@CentralMichigan@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.54
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8334539806272869
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.25811220719241346
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "KentState@Pitt@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.53
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.7442441344439588
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 13,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 3,
+                    "probability": 0.10077863457487311
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "WesternIllinois@NorthernIllinois@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7102342769798176
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.3366408255154909
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Duquesne@Toledo@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.75
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9870846421632329
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.13
+                },
+                "LogisticRegression": {
+                    "prediction": 23,
+                    "probability": 0.4619065417128017
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Merrimack@AirForce@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.57
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6416014757287956
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 30,
+                    "probability": 0.3601209936384154
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "BoiseState@GeorgiaSouthern@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.68
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8764410154192955
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 9,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 20,
+                    "probability": 0.29145425170480843
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "ColoradoState@Texas@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.53
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8327990863651475
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.14
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.2357380452083552
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "DelawareState@Hawaii@Aug_25_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.67
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9087264037802903
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 20,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 8,
+                    "probability": 0.21352657923235846
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "TexasA&M-Commerce@SanDiegoState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8701869147834491
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 30,
+                    "probability": 0.34178225024168474
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SacramentoState@SanJoseState@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6639967647733087
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.465033674429725
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "RobertMorris@UtahState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.58
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8751834099204464
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 25,
+                    "probability": 0.4745890700961721
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "IdahoState@OregonState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.58
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5897259647545697
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 13,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.35482394073111706
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "PortlandState@WashingtonState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.59
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9963019565734172
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.07
+                },
+                "LogisticRegression": {
+                    "prediction": 5,
+                    "probability": 0.26474235682316466
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Arkansas-PineBluff@Arkansas@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.61
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8723108814601639
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.6015544284677576
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "AlabamaA&M@Auburn@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.57
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.7506119360310036
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.09
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.7240933697851016
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "SouthernMississippi@Kentucky@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.52
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9463238284494019
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.17592758487311314
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "LSU@USC@Sep_1_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.74
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8518295190182916
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.2569429791137589
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "EasternKentucky@MississippiState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.64
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8241930868686805
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.13
+                },
+                "LogisticRegression": {
+                    "prediction": 23,
+                    "probability": 0.250907514170593
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "MurrayState@Missouri@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.65
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.9703959126065416
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 6,
+                    "probability": 0.13
+                },
+                "LogisticRegression": {
+                    "prediction": 5,
+                    "probability": 0.25860682063939683
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "OleMiss@Furman@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.93
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9845338898540239
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 23,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.2580973641189354
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "OldDominion@SouthCarolina@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.58
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.6264277983375756
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 13,
+                    "probability": 0.22608895674148677
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Chattanooga@Tennessee@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.61
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.5444776124321731
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.12
+                },
+                "LogisticRegression": {
+                    "prediction": 25,
+                    "probability": 0.20976208479032626
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "GeorgiaState@GeorgiaTech@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.64
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.6850697376510032
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.14
+                },
+                "LogisticRegression": {
+                    "prediction": 4,
+                    "probability": 0.1716784359026684
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "StonyBrook@Marshall@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.52
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.8132641449721373
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.23169287772515162
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "CentralArkansas@ArkansasState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.62
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.83847991848773
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.11
+                },
+                "LogisticRegression": {
+                    "prediction": 44,
+                    "probability": 0.7168416573349016
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Louisiana@GramblingState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.93
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.979979638343483
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 16,
+                    "probability": 0.1
+                },
+                "LogisticRegression": {
+                    "prediction": 2,
+                    "probability": 0.1827223172794322
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "JacksonState@Louisiana-Monroe@Aug_29_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 0,
+                    "probability": 0.63
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9445260966545546
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 41,
+                    "probability": 0.18
+                },
+                "LogisticRegression": {
+                    "prediction": 41,
+                    "probability": 0.9198003926015061
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Lamar@TexasState@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.51
+                },
+                "LogisticRegression": {
+                    "prediction": 0,
+                    "probability": 0.9152026251165245
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 2,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 5,
+                    "probability": 0.752985092959446
+                }
+            }
+        }
+    },
+    {
+        "file": "/content/NewGames/2024MLDataToEvaluate.json",
+        "key": "Nevada@Troy@Aug_31_2024",
+        "predictions": {
+            "isHomeWinner": {
+                "RandomForest": {
+                    "prediction": 1,
+                    "probability": 0.83
+                },
+                "LogisticRegression": {
+                    "prediction": 1,
+                    "probability": 0.8097523966992833
+                }
+            },
+            "scoreDiff": {
+                "RandomForest": {
+                    "prediction": 30,
+                    "probability": 0.08
+                },
+                "LogisticRegression": {
+                    "prediction": 6,
+                    "probability": 0.1516682767425074
+                }
+            }
+        }
+    }
+]
