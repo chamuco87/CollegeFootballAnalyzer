@@ -26,29 +26,29 @@ const { Console } = require('console');
             //await getSchedulePerYearDetails();
             //await getGamesPerYearDetails();
 
-            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
-            // for (let index = 0; index < years.length; index++) {
-            //     const yearTo = years[index];
-            //     await prepareData(yearTo);
-            //     await formatGamesPerTeam(yearTo);
-            //     await generateAverages(yearTo);
-            // }
+            var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
+            for (let index = 0; index < years.length; index++) {
+                const yearTo = years[index];
+                await prepareData(yearTo);
+                await formatGamesPerTeam(yearTo);
+                await generateAverages(yearTo);
+            }
 
-            var years = [ 2022, 2021, 2020, 2019, 2018, 2017, 2016];
+            var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
             for (let index = 0; index < years.length; index++) {
                 const yearTo = years[index];
                 var toBeEvaluated = false;
                 await generateMLRecords(yearTo, toBeEvaluated);
             }
 
-            var years = [2023];
+            var years = [2024];
             for (let index = 0; index < years.length; index++) {
                 const yearTo = years[index];
                 var toBeEvaluated = true;
                 await generateMLRecords(yearTo, toBeEvaluated);
             }
             
-            //await enrichMLResults(2023);
+            //await enrichMLResults("2023AvgOnly", 2023);
 
           } 
           catch(Ex){
@@ -100,10 +100,9 @@ const { Console } = require('console');
             return finalObject;
         }
 
-        async function enrichMLResults(yearToProcess)
+        async function enrichMLResults(fileToEnrich, yearToProcess)
         {
-            var allMLRecords = await load(yearToProcess+"AllMLResults","AnalysisData");
-            var selectionsMLRecords = await load(yearToProcess+"SelectionsMLResults", "AnalysisData");
+            var allMLRecords = await load(fileToEnrich,"AnalysisData");
             var yearResults = await load("gameRecords","AnalysisData/"+yearToProcess);
             allMLRecords.forEach(record => {
                 var sel = yearResults.filter(function(item){return item.key == record.key});
@@ -114,17 +113,7 @@ const { Console } = require('console');
                 }
             });
 
-            selectionsMLRecords.forEach(record => {
-                var sel = yearResults.filter(function(item){return item.key == record.key});
-                if(sel.length > 0)
-                {
-                    record.isHomeWinner = sel[0].isHomeWinner;
-                    record.scoreDiff = sel[0].scoreDiff;
-                }
-            });
-
-            await save(yearToProcess+"AllMLResults", allMLRecords, function(){},"replace" ,"AnalysisData");
-            await save(yearToProcess+"SelectionsMLResults", selectionsMLRecords, function(){},"replace", "AnalysisData");
+            await save(fileToEnrich, allMLRecords, function(){},"replace" ,"AnalysisData");
 
         }
 
@@ -267,11 +256,11 @@ const { Console } = require('console');
                                                     MLRecord.date = gameRecord[0].date;
                                                     if(!toBeEvaluated){
                                                         MLRecord.isHomeWinner = gameRecord[0].isHomeWinner;
-                                                        MLRecord.scoreDiff = gameRecord[0].scoreDiff;
+                                                        //MLRecord.scoreDiff = gameRecord[0].scoreDiff;
                                                     }
                                                     else{
                                                         MLRecord.isHomeWinner = 0;
-                                                        MLRecord.scoreDiff = 0;
+                                                        //MLRecord.scoreDiff = 0;
                                                     }
                                                     MLRecord.homeTeam = gameRecord[0].homeTeam;
                                                     MLRecord.awayTeam = gameRecord[0].awayTeam;
@@ -378,11 +367,11 @@ const { Console } = require('console');
                                                     MLRecord.date = gameRecord[0].date;
                                                     if(!toBeEvaluated){
                                                         MLRecord.isHomeWinner = gameRecord[0].isHomeWinner;
-                                                        MLRecord.scoreDiff = gameRecord[0].scoreDiff;
+                                                        //MLRecord.scoreDiff = gameRecord[0].scoreDiff;
                                                     }
                                                     else{
                                                         MLRecord.isHomeWinner = 0;
-                                                        MLRecord.scoreDiff = 0;
+                                                        //MLRecord.scoreDiff = 0;
                                                     }
                                                     MLRecord.homeTeam = gameRecord[0].homeTeam;
                                                     MLRecord.awayTeam = gameRecord[0].awayTeam;
