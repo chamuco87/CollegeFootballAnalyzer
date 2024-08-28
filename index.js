@@ -19,34 +19,36 @@ const { Console } = require('console');
           ).build()
 
           try {
+
+            await LogIn();
             //await getTableData("/cfb/years/" ,"years", "BaseData");
             //await getConferencesPerYear();
             //await getConferencesPerYearDetails();
             //await getSchoolPerYearDetails();
             //await getSchedulePerYearDetails();
-            //await getGamesPerYearDetails();
+            await getGamesPerYearDetails();
 
-            var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
-            for (let index = 0; index < years.length; index++) {
-                const yearTo = years[index];
-                await prepareData(yearTo);
-                await formatGamesPerTeam(yearTo);
-                await generateAverages(yearTo);
-            }
+            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     await prepareData(yearTo);
+            //     await formatGamesPerTeam(yearTo);
+            //     await generateAverages(yearTo);
+            // }
 
-            var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
-            for (let index = 0; index < years.length; index++) {
-                const yearTo = years[index];
-                var toBeEvaluated = false;
-                await generateMLRecords(yearTo, toBeEvaluated);
-            }
+            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     var toBeEvaluated = false;
+            //     await generateMLRecords(yearTo, toBeEvaluated);
+            // }
 
-            var years = [2024];
-            for (let index = 0; index < years.length; index++) {
-                const yearTo = years[index];
-                var toBeEvaluated = true;
-                await generateMLRecords(yearTo, toBeEvaluated);
-            }
+            // var years = [2024];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     var toBeEvaluated = true;
+            //     await generateMLRecords(yearTo, toBeEvaluated);
+            // }
             
             //await enrichMLResults("2023AvgOnly", 2023);
 
@@ -58,6 +60,27 @@ const { Console } = require('console');
           } finally {
               //await driver.quit();
               //await example();
+          }
+
+          async function LogIn(){
+                    var loginUrl = "https://stathead.com/users/login.cgi?token=1&_gl=1*isv5wn*_ga*MTM5MDMxMzA2NS4xNzI0ODc1NTMx*_ga_80FRT7VJ60*MTcyNDg3NTUzMC4xLjAuMTcyNDg3NTUzMC4wLjAuMA..&redirect_uri=https%3A//www.sports-reference.com/cfb/years/2023.html";
+                        var data = [];
+                    //await driver.manage().setTimeouts({ explicit: 3000 });
+                    
+                    await driver.manage().setTimeouts({ implicit: 200 });
+                    await driver.get(loginUrl);
+                    // await driver.wait(until.elementLocated(By.id(tables[tables.length-1])), // Condition to wait for
+                    //     3000 // Timeout in milliseconds (10 seconds)
+                    // );
+                    let loginElement = await driver.wait(until.elementLocated(By.id('username')), 10000);
+                    await driver.wait(until.elementIsVisible(loginElement), 10000);
+
+                    await driver.findElement(By.id('username')).sendKeys('jose.carbajal.salinas@gmail.com');
+                    await driver.findElement(By.id('password')).sendKeys('Lom@s246', Key.RETURN);
+                    
+                    
+                    let loadElement = await driver.wait(until.elementLocated(By.id('all_awards')), 10000);
+                    await driver.wait(until.elementIsVisible(loadElement), 10000);
           }
 
           function isWithin8Days(date1, date2) {
@@ -1001,7 +1024,7 @@ const { Console } = require('console');
                     var conferences = [];
                     
                         var isYear = parseInt(year.year_id);
-                        if(!isNaN(isYear) && (isYear == 2016 ||isYear == 2015 ||isYear == 2014||isYear == 2013  )){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
+                        if(!isNaN(isYear) && (isYear == 2016 ||isYear == 2015 ||isYear == 2014||isYear == 2013||isYear == 2012  )){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
                             conferences = await load("conferences", year.year_id);
                             if(conferences.length > 0){
                                 for (let rt = 0; rt < conferences.length; rt++) {
@@ -1041,10 +1064,10 @@ const { Console } = require('console');
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
-                                                                if(processing == 1)
-                                                                {
-                                                                    throw new Error("Restart");
-                                                                }
+                                                                // if(processing == 1)
+                                                                // {
+                                                                //     throw new Error("Restart");
+                                                                // }
                                                             }
                                                         }
                                                     }
