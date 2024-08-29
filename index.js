@@ -785,7 +785,7 @@ const { Console } = require('console');
                             //const tableId = tables[ay];
                             let table = tables[ay];
                             let tableId = await table.getAttribute('id');
-                            if(tableId){
+                            if(tableId  && tableId == "team_stats"){
                                 await driver.executeScript(await JSgetTableDetails(tableId)).then(function(return_value) {
                                     console.log(return_value);
                                     data = JSON.parse(return_value);
@@ -793,7 +793,7 @@ const { Console } = require('console');
                                 var name = fileName != tableId ? fileName+"_"+tableId : fileName;
                                 await save(name, data,function(){}, "replace", foldername);
                             }
-                            else{
+                            else if(!tableId){
                                 await driver.executeScript(await JSgetResultDetails(tableId)).then(function(return_value) {
                                     console.log(return_value);
                                     data = JSON.parse(return_value);
@@ -1024,7 +1024,7 @@ const { Console } = require('console');
                     var conferences = [];
                     
                         var isYear = parseInt(year.year_id);
-                        if(!isNaN(isYear) && (isYear == 2016 ||isYear == 2015 ||isYear == 2014||isYear == 2013||isYear == 2012  )){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
+                        if(!isNaN(isYear) && (isYear == 2016 ||isYear == 2015 ||isYear == 2014||isYear == 2013||isYear == 2012 ||isYear == 2011||isYear == 2010   )){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
                             conferences = await load("conferences", year.year_id);
                             if(conferences.length > 0){
                                 for (let rt = 0; rt < conferences.length; rt++) {
