@@ -26,9 +26,9 @@ const { Console } = require('console');
             //await getConferencesPerYearDetails();
             //await getSchoolPerYearDetails();
             //await getSchedulePerYearDetails();
-             await getGamesPerYearDetails();
+            await getGamesPerYearDetails();
 
-            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
+            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     await prepareData(yearTo);
@@ -36,11 +36,18 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
+            //var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = false;
             //     await generateMLRecords(yearTo, toBeEvaluated);
+            // }
+            // var MLData = [];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     var data = await load(yearTo+"MLData", "AnalysisData")
+            //     MLData = MLData.concat(data);
+            //     await save("MLData",MLData, function(){}, "replace", "AnalysisData")
             // }
 
             // var years = [2024];
@@ -50,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            //await enrichMLResults("2024AllMLResults", 2024);
+            //await enrichMLResults("2024NewMLResults", 2024);
 
           } 
           catch(Ex){
@@ -62,6 +69,91 @@ const { Console } = require('console');
               //await example();
           }
 
+          function findMatchesScoreDiff(objectsArray, targetObject, topN = 5) {
+            const keyWeights = {
+                awayAvgDefAllowedFirstDowns: 1, // Consider only this key
+                awayAvgDefAllowedPassTD: 2,
+                awayAvgDefAllowedPassCpm:1,
+                awayAvgDefAllowedPassYD:2,
+                awayAvgDefAllowedPoints:1,
+                awayAvgDefAllowedRushTD:2,
+                awayAvgDefAllowedRushYD:2,
+                awayAvgOffenseFirstDowns: 1, // Consider only this key
+                awayAvgOffensePassTD: 2,
+                awayAvgOffensePassCpm:1,
+                awayAvgOffensePassYD:2,
+                awayAvgOffensePoints:1,
+                awayAvgOffenseRushTD:2,
+                awayAvgOffenseRushYD:2,
+                homeAvgDefAllowedFirstDowns: 1, // Consider only this key
+                homeAvgDefAllowedPassTD: 2,
+                homeAvgDefAllowedPassCpm:1,
+                homeAvgDefAllowedPassYD:2,
+                homeAvgDefAllowedPoints:1,
+                homeAvgDefAllowedRushTD:2,
+                homeAvgDefAllowedRushYD:2,
+                homeAvgOffenseFirstDowns: 1, // Consider only this key
+                homeAvgOffensePassTD: 2,
+                homeAvgOffensePassCpm:1,
+                homeAvgOffensePassYD:2,
+                homeAvgOffensePoints:1,
+                homeAvgOffenseRushTD:2,
+                homeAvgOffenseRushYD:2
+                 // And this key
+            };
+            const distances = [];
+        
+            // Calculate min and max for each key in keyWeights to normalize distances
+            const minMaxValues = {};
+        
+            for (let key in keyWeights) {
+                if (keyWeights.hasOwnProperty(key) && typeof targetObject[key] === 'number') {
+                    let values = objectsArray.map(obj => obj[key]).filter(val => typeof val === 'number');
+                    minMaxValues[key] = {
+                        min: Math.min(...values),
+                        max: Math.max(...values),
+                    };
+                }
+            }
+        
+            for (let i = 0; i < objectsArray.length; i++) {
+                const currentObject = objectsArray[i];
+                let distance = 0;
+        
+                for (let key in keyWeights) {
+                    if (
+                        keyWeights.hasOwnProperty(key) &&
+                        targetObject.hasOwnProperty(key) &&
+                        currentObject.hasOwnProperty(key) &&
+                        key !== 'isHomeWinner' // Skip the 'isHomeWinner' property
+                    ) {
+                        const targetValue = targetObject[key];
+                        const currentValue = currentObject[key];
+        
+                        // Only calculate distance for numerical properties defined in keyWeights
+                        if (typeof targetValue === 'number' && typeof currentValue === 'number') {
+                            const { min, max } = minMaxValues[key];
+                            const normalizedDifference = (currentValue - targetValue) / (max - min || 1); // Prevent division by zero
+                            const weight = keyWeights[key]; // Use weight from keyWeights
+                            distance += weight * normalizedDifference ** 2;
+                        }
+                    }
+                }
+        
+                distances.push({
+                    index: i,
+                    object: currentObject,
+                    distance: Math.sqrt(distance), // Use Euclidean distance
+                });
+            }
+        
+            // Sort the objects by distance
+            distances.sort((a, b) => a.distance - b.distance);
+        
+            // Return the top N closest matches
+            return distances.slice(0, topN).map(item => item.object);
+        }
+        
 
         function calculateAverage(numbers) {
             if (numbers.length === 0) return 0; // Handle empty array case
@@ -174,6 +266,20 @@ const { Console } = require('console');
             return finalObject;
         }
 
+        function calculateStandardDeviation(values) {
+            const mean = values.reduce((acc, val) => acc + val, 0) / values.length;
+        
+            const squaredDifferences = values.map(val => {
+                const difference = val - mean;
+                return difference ** 2;
+            });
+        
+            const meanSquaredDifference = squaredDifferences.reduce((acc, val) => acc + val, 0) / values.length;
+        
+            const standardDeviation = Math.sqrt(meanSquaredDifference);
+            return standardDeviation;
+        }
+
         async function enrichMLResults(fileToEnrich, yearToProcess)
         {
             var allMLRecords = await load(fileToEnrich,"AnalysisData");
@@ -198,8 +304,10 @@ const { Console } = require('console');
                 const matches = findMatches(analysisArray, targetGame, 5);
                 var similarGamesWinner = matches.map(n => n.isHomeWinner);
                 var probabilities = calculateAverage(similarGamesWinner);
-                var similarScoreDiff = matches.map(n => Math.abs(n.homeAvgDefAllowedPoints - n.awayAvgDefAllowedPoints));
+                const scoreMatches =  findMatchesScoreDiff(analysisArray, targetGame, 10);
+                var similarScoreDiff = scoreMatches.map(n => Math.abs(n.scoreDiff));
                 game.similarScoreDiffAvg = Math.round(calculateAverage(similarScoreDiff));
+                game.standardDeviation = Math.round(calculateStandardDeviation(similarScoreDiff));
                 game.similarPrediction = probabilities <= .5 ? 0 : 1;
                 game.similarProbability = game.similarPrediction == 0 ? 1-probabilities : probabilities;
                 game.similarCount = similarScoreDiff.length;
@@ -209,12 +317,18 @@ const { Console } = require('console');
             allMLRecords.forEach(game => {
                 var team1 = game.key.split("@")[0];
                 var team2 = game.key.split("@")[1];
-                var matches = analysisArray.filter(function(item){return item.key.indexOf(team1) >=0 && item.key.indexOf(team2) >=0 });
+                if(team1 =="SouthernUtah"){
+                    var stopHere = "";
+                }
+                var matches = analysisArray.filter(function(item){
+                    var away = item.key.split("@")[0];
+                    var home = item.key.split("@")[1];
+                    return ((away == team1 && home == team2) || (away == team2 && home == team1) && (item.awayAvgDefAllowedTotalYD >0 && item.homeAvgDefAllowedTotalYD > 0)) });
                 // const matches = findMatches(analysisArray, targetGame, 5);
                 // var similarGamesWinner = matches.map(n => n.isHomeWinner);
                 // var probabilities = calculateAverage(similarGamesWinner);
                 if(matches.length > 0){
-                    var previousScoreDiff = matches.map(n => Math.abs(n.homeAvgDefAllowedPoints - n.awayAvgDefAllowedPoints));
+                    var previousScoreDiff = matches.map(n => Math.abs(n.scoreDiff));
                     game.previousScoreDiffAvg = Math.round(calculateAverage(previousScoreDiff));
                     game.previousCount = previousScoreDiff.length;
                 }
@@ -230,9 +344,10 @@ const { Console } = require('console');
 
         async function generateMLRecords(yearToProcess, toBeEvaluated)
         {
+            console.log("Generating ML data for: "+ yearToProcess);
             try{
                 if(!toBeEvaluated){
-                    var MLData = await load(yearToProcess+"MLData", "AnalysisData");
+                    var MLData = [];//await load(yearToProcess+"MLData", "AnalysisData");
                 }
                 else{
                     var MLData = await load(yearToProcess+"MLDataToEvaluate", "AnalysisData");
@@ -383,7 +498,9 @@ const { Console } = require('console');
                                                     MLRecord = appendProperties(MLRecord, homeAverageRecords, "homeAvg");
                                                     var awayAverageRecords = gameRecord[0].awayTeam == opponentAverage[0].team ? opponentAverage[0] : selectedAverage[0];
                                                     MLRecord = appendProperties(MLRecord, awayAverageRecords, "awayAvg");
+                                                    if(MLRecord.homeAvgOffenseTotalYD  == 0 || MLRecord.awayAvgOffenseTotalYD  == 0){
                                                     var stopHere = ""
+                                                    }
                                                     var isThere = MLData.filter(function(item){return item.key == MLRecord.key });
                                                     if(isThere.length == 0){
                                                         MLData.push(MLRecord);
@@ -530,10 +647,10 @@ const { Console } = require('console');
                                                     }
                                                     MLRecord.homeTeam = gameRecord[0].homeTeam;
                                                     MLRecord.awayTeam = gameRecord[0].awayTeam;
-                                                    var homeRecords = gameRecord[0].homeTeam == selectedGameResult.team ? selectedGameResult : opponentGameResult;
-                                                    MLRecord = appendProperties(MLRecord, homeRecords, "home");
-                                                    var awayRecords = gameRecord[0].awayTeam == opponentGameResult.team ? opponentGameResult : selectedGameResult;
-                                                    MLRecord = appendProperties(MLRecord, awayRecords, "away");
+                                                    //var homeRecords = gameRecord[0].homeTeam == selectedGameResult.team ? selectedGameResult : opponentGameResult;
+                                                    //MLRecord = appendProperties(MLRecord, homeRecords, "home");
+                                                    //var awayRecords = gameRecord[0].awayTeam == opponentGameResult.team ? opponentGameResult : selectedGameResult;
+                                                    //MLRecord = appendProperties(MLRecord, awayRecords, "away");
                                                     var homeAverageRecords = gameRecord[0].homeTeam == selectedAverage[0].team ? selectedAverage[0] : opponentAverage[0];
                                                     MLRecord = appendProperties(MLRecord, homeAverageRecords, "homeAvg");
                                                     var awayAverageRecords = gameRecord[0].awayTeam == opponentAverage[0].team ? opponentAverage[0] : selectedAverage[0];
@@ -587,6 +704,7 @@ const { Console } = require('console');
 
         async function generateAverages(yearToProcess)
         {
+           console.log("Averaging data for: "+ yearToProcess);
           var data = await load("formatedRecords","AnalysisData/"+yearToProcess);
           try{
               var averageRecords = await load("averageRecords","AnalysisData/"+yearToProcess);
@@ -652,6 +770,7 @@ const { Console } = require('console');
 
           async function formatGamesPerTeam(yearToProcess)
           {
+            console.log("Formatting data for: "+ yearToProcess);
             var data = await load("gameRecords","AnalysisData/"+yearToProcess);
             try{
                 var formatedRecords = await load("formatedRecords","AnalysisData/"+yearToProcess);
@@ -766,6 +885,7 @@ const { Console } = require('console');
 
             async function prepareData(yearToProcess)
             {
+                console.log("Preparing data for: "+ yearToProcess);
                 var years = await load("years", "BaseData");
                 var processing = 0;
                 for (let index = 0; index < years.length; index++) {
