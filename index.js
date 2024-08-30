@@ -20,13 +20,13 @@ const { Console } = require('console');
 
           try {
 
-            await LogIn();
+            //await LogIn();
             //await getTableData("/cfb/years/" ,"years", "BaseData");
             //await getConferencesPerYear();
             //await getConferencesPerYearDetails();
             //await getSchoolPerYearDetails();
             //await getSchedulePerYearDetails();
-            await getGamesPerYearDetails();
+             await getGamesPerYearDetails();
 
             // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015];
             // for (let index = 0; index < years.length; index++) {
@@ -50,7 +50,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            //await enrichMLResults("2023AvgOnly", 2023);
+            //await enrichMLResults("2024AllMLResults", 2024);
 
           } 
           catch(Ex){
@@ -61,6 +61,57 @@ const { Console } = require('console');
               //await driver.quit();
               //await example();
           }
+
+
+        function calculateAverage(numbers) {
+            if (numbers.length === 0) return 0; // Handle empty array case
+        
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            const average = sum / numbers.length;
+            
+            return average;
+        }
+
+          function findMatches(objectsArray, targetObject, topN = 5) {
+            const distances = [];
+
+            for (let i = 0; i < objectsArray.length; i++) {
+                const currentObject = objectsArray[i];
+                let distance = 0;
+        
+                for (let key in targetObject) {
+                    if (
+                        targetObject.hasOwnProperty(key) && 
+                        currentObject.hasOwnProperty(key) &&
+                        key !== 'isHomeWinner' // Skip the 'isHomeWinner' property
+                    ) {
+                        const targetValue = targetObject[key];
+                        const currentValue = currentObject[key];
+        
+                        // Only calculate distance for numerical properties
+                        if (typeof targetValue === 'number' && typeof currentValue === 'number') {
+                            distance += Math.abs(currentValue - targetValue);
+                        }
+                    }
+                }
+        
+                distances.push({
+                    index: i,
+                    object: currentObject,
+                    distance: distance,
+                });
+            }
+        
+            // Sort the objects by distance
+            distances.sort((a, b) => a.distance - b.distance);
+        
+            // Return the top N closest matches
+            return distances.slice(0, topN).map(item => item.object);
+        }
+        
+        
+        
+        
 
           async function LogIn(){
                     var loginUrl = "https://stathead.com/users/login.cgi?token=1&_gl=1*isv5wn*_ga*MTM5MDMxMzA2NS4xNzI0ODc1NTMx*_ga_80FRT7VJ60*MTcyNDg3NTUzMC4xLjAuMTcyNDg3NTUzMC4wLjAuMA..&redirect_uri=https%3A//www.sports-reference.com/cfb/years/2023.html";
@@ -126,6 +177,7 @@ const { Console } = require('console');
         async function enrichMLResults(fileToEnrich, yearToProcess)
         {
             var allMLRecords = await load(fileToEnrich,"AnalysisData");
+            try{
             var yearResults = await load("gameRecords","AnalysisData/"+yearToProcess);
             allMLRecords.forEach(record => {
                 var sel = yearResults.filter(function(item){return item.key == record.key});
@@ -133,6 +185,42 @@ const { Console } = require('console');
                 {
                     record.isHomeWinner = sel[0].isHomeWinner;
                     record.scoreDiff = sel[0].scoreDiff;
+                }
+            });
+            }
+            catch{}
+
+            
+            var analysisArray = await load("MLData", "AnalysisData");
+            var targetData = await load(yearToProcess+"MLDataToEvaluate", "AnalysisData");
+            allMLRecords.forEach(game => {
+                var targetGame = targetData.filter(function(item){return item.key == game.key})[0];
+                const matches = findMatches(analysisArray, targetGame, 5);
+                var similarGamesWinner = matches.map(n => n.isHomeWinner);
+                var probabilities = calculateAverage(similarGamesWinner);
+                var similarScoreDiff = matches.map(n => Math.abs(n.homeAvgDefAllowedPoints - n.awayAvgDefAllowedPoints));
+                game.similarScoreDiffAvg = Math.round(calculateAverage(similarScoreDiff));
+                game.similarPrediction = probabilities <= .5 ? 0 : 1;
+                game.similarProbability = game.similarPrediction == 0 ? 1-probabilities : probabilities;
+                game.similarCount = similarScoreDiff.length;
+                game.date = game.key.split("@")[2];
+            });
+
+            allMLRecords.forEach(game => {
+                var team1 = game.key.split("@")[0];
+                var team2 = game.key.split("@")[1];
+                var matches = analysisArray.filter(function(item){return item.key.indexOf(team1) >=0 && item.key.indexOf(team2) >=0 });
+                // const matches = findMatches(analysisArray, targetGame, 5);
+                // var similarGamesWinner = matches.map(n => n.isHomeWinner);
+                // var probabilities = calculateAverage(similarGamesWinner);
+                if(matches.length > 0){
+                    var previousScoreDiff = matches.map(n => Math.abs(n.homeAvgDefAllowedPoints - n.awayAvgDefAllowedPoints));
+                    game.previousScoreDiffAvg = Math.round(calculateAverage(previousScoreDiff));
+                    game.previousCount = previousScoreDiff.length;
+                }
+                else{
+                    game.previousScoreDiffAvg = 0;
+                    game.previousCount = 0;
                 }
             });
 
@@ -144,10 +232,10 @@ const { Console } = require('console');
         {
             try{
                 if(!toBeEvaluated){
-                    var MLData = await load("MLData", "AnalysisData");
+                    var MLData = await load(yearToProcess+"MLData", "AnalysisData");
                 }
                 else{
-                    var MLData = await load("MLDataToEvaluate", "AnalysisData");
+                    var MLData = await load(yearToProcess+"MLDataToEvaluate", "AnalysisData");
                 }
             }
             catch{
@@ -279,11 +367,11 @@ const { Console } = require('console');
                                                     MLRecord.date = gameRecord[0].date;
                                                     if(!toBeEvaluated){
                                                         MLRecord.isHomeWinner = gameRecord[0].isHomeWinner;
-                                                        //MLRecord.scoreDiff = gameRecord[0].scoreDiff;
+                                                        MLRecord.scoreDiff = gameRecord[0].scoreDiff;
                                                     }
                                                     else{
                                                         MLRecord.isHomeWinner = 0;
-                                                        //MLRecord.scoreDiff = 0;
+                                                        MLRecord.scoreDiff = 0;
                                                     }
                                                     MLRecord.homeTeam = gameRecord[0].homeTeam;
                                                     MLRecord.awayTeam = gameRecord[0].awayTeam;
@@ -300,10 +388,10 @@ const { Console } = require('console');
                                                     if(isThere.length == 0){
                                                         MLData.push(MLRecord);
                                                         if(!toBeEvaluated){
-                                                            await save("MLData",MLData, function(){}, "replace" ,"AnalysisData");
+                                                            await save(yearToProcess+"MLData",MLData, function(){}, "replace" ,"AnalysisData");
                                                         }
                                                         else{
-                                                            await save("MLDataToEvaluate",MLData, function(){}, "replace" ,"AnalysisData");
+                                                            await save(yearToProcess+"MLDataToEvaluate",MLData, function(){}, "replace" ,"AnalysisData");
                                                         }
                                                     }
                                                 }
@@ -318,20 +406,64 @@ const { Console } = require('console');
                                             for (let rat = 0; rat < schedules.length; rat++) {
                                                 if(rat == 0){
                                                 const schedule = schedules[rat];
-                                                var homePossibleTeam = schedule.date_gameLink.split("-");
-                                                var homePossibleTeam = homePossibleTeam[homePossibleTeam.length-1].replace(".html","");
+                                                var homePossibleTeam = extractTextBetween(schedule.date_gameLink);
+                                                var opponentName = schedule.opp_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_","");
+                                                school_name = school_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_","");
+                                                var home_name = null;
+                                                var away_name = null;
+                                                if(homePossibleTeam.indexOf("-")<0)
+                                                {
+                                                   home_name = school_name.toLowerCase().indexOf(homePossibleTeam.toLowerCase()) >=0 ? school_name : opponentName.toLowerCase().indexOf(homePossibleTeam.toLowerCase()) >=0 ? opponentName : null;
+                                                   if(home_name){
+                                                        away_name = home_name == school_name ? opponentName : school_name;
+                                                   }
+                                                }
+                                                else{
+                                                    var option1 = homePossibleTeam.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_","").replace(/-/g,"");
+                                                    home_name = school_name.toLowerCase().indexOf(option1.toLowerCase()) >=0 ? school_name : opponentName.toLowerCase().indexOf(option1.toLowerCase()) >=0 ? opponentName : null;
+                                                    if(home_name){
+                                                        away_name = home_name == school_name ? opponentName : school_name;
+                                                   }
+                                                }
+                                                if(!home_name)
+                                                {
+                                                    var options = homePossibleTeam.split("-");
+                                                    for (let index = 0; index < options.length; index++) {
+                                                        const option = options[index];
+                                                        home_name = school_name.toLowerCase().indexOf(option.toLowerCase()) >=0 ? school_name : opponentName.toLowerCase().indexOf(option1.toLowerCase()) >=0 ? opponentName : null;
+                                                        if(home_name){
+                                                            away_name = home_name == school_name ? opponentName : school_name;
+                                                            break;
+                                                        }
+                                                    }
+                                                    
+                                                    if(!home_name){
+                                                        var lastOption = "";
+                                                        for (let index = 0; index < options.length; index++) {
+                                                            const option = options[index];
+                                                            lastOption += option.charAt(0);
+                                                        }
+                                                        home_name = school_name.toLowerCase().indexOf(lastOption.toLowerCase()) >=0 ? school_name : opponentName.toLowerCase().indexOf(lastOption.toLowerCase()) >=0 ? opponentName : null;
+                                                        if(home_name){
+                                                            away_name = home_name == school_name ? opponentName : school_name;
+                                                        }
+                                                        else{
+                                                            var stopHere = "";
+                                                        }
+                                                   }
+                                                }
                                                 var schedule_name = schedule.date_game.replace(" ","_").replace(" ","_").replace(",","");
                                                 var gameRecords = [];
                                                 var gameResults = [];
                                                 var averageRecords = [];
-                                                var opponentName = schedule.opp_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_","");
-                                                school_name = school_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_","");
+                                                
+
                                                 try{
                                                     //gameRecords = await load("gameRecords","AnalysisData/" + year.year_id);
                                                     
                                                     try{
                                                         gameResults = await load("formatedRecords","AnalysisData/" + (year.year_id-1));
-                                                        var selectedGameResults = gameResults.filter(function(item){return item.team == school_name});
+                                                        var selectedGameResults = gameResults.filter(function(item){return item.team == home_name});
                                                         var selectedGameResult = selectedGameResults[selectedGameResults.length-1];
                                                     }
                                                     catch{
@@ -342,7 +474,7 @@ const { Console } = require('console');
                                                     try{
                                                         var arr = [];
                                                         averageRecords = await load("averageRecords","AnalysisData/" + (year.year_id-1));
-                                                        var selectedAverage = averageRecords.filter(function(item){return item.team == school_name});
+                                                        var selectedAverage = averageRecords.filter(function(item){return item.team == home_name});
                                                         var selectedAvg = selectedAverage[selectedAverage.length-1];
                                                         arr.push(selectedAvg);
                                                         selectedAverage = arr;
@@ -356,7 +488,7 @@ const { Console } = require('console');
                                                     
                                                     try{
                                                         gameResults = await load("formatedRecords","AnalysisData/" + (year.year_id-1));
-                                                        var opponentGameResults = gameResults.filter(function(item){return item.team == opponentName});
+                                                        var opponentGameResults = gameResults.filter(function(item){return item.team == away_name});
                                                         var opponentGameResult = opponentGameResults[opponentGameResults.length-1];
                                                     }
                                                     catch{
@@ -367,7 +499,7 @@ const { Console } = require('console');
                                                     try{
                                                         var arr = [];
                                                         averageRecords = await load("averageRecords","AnalysisData/" + (year.year_id-1));
-                                                        var opponentAverage = averageRecords.filter(function(item){return item.team == opponentName});
+                                                        var opponentAverage = averageRecords.filter(function(item){return item.team == away_name});
                                                         var opponentAvg = opponentAverage[opponentAverage.length-1];
                                                         arr.push(opponentAvg);
                                                         opponentAverage = arr;
@@ -376,8 +508,8 @@ const { Console } = require('console');
                                                         var opponentAverage = [];
                                                     }
 
-                                                   var homeTeam = schedule.school_name.toLowerCase().indexOf(homePossibleTeam) >= 0 ? schedule.school_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '') : schedule.opp_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '');
-                                                   var awayTeam = homeTeam == schedule.school_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '') ? schedule.opp_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '') : schedule.school_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '');
+                                                   var homeTeam = home_name;
+                                                   var awayTeam = away_name;
                                                    var key = awayTeam.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '')+ "@" + homeTeam.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '') + "@" + schedule_name;
                                                    var record = {key:key, date: schedule_name,homeTeam:homeTeam, awayTeam:awayTeam};
                                                    var gameRecord =[];
@@ -390,11 +522,11 @@ const { Console } = require('console');
                                                     MLRecord.date = gameRecord[0].date;
                                                     if(!toBeEvaluated){
                                                         MLRecord.isHomeWinner = gameRecord[0].isHomeWinner;
-                                                        //MLRecord.scoreDiff = gameRecord[0].scoreDiff;
+                                                        MLRecord.scoreDiff = gameRecord[0].scoreDiff;
                                                     }
                                                     else{
                                                         MLRecord.isHomeWinner = 0;
-                                                        //MLRecord.scoreDiff = 0;
+                                                        MLRecord.scoreDiff = 0;
                                                     }
                                                     MLRecord.homeTeam = gameRecord[0].homeTeam;
                                                     MLRecord.awayTeam = gameRecord[0].awayTeam;
@@ -411,10 +543,10 @@ const { Console } = require('console');
                                                     if(isThere.length == 0){
                                                         MLData.push(MLRecord);
                                                         if(!toBeEvaluated){
-                                                            await save("MLData",MLData, function(){}, "replace" ,"AnalysisData");
+                                                            await save(yearToProcess+"MLData",MLData, function(){}, "replace" ,"AnalysisData");
                                                         }
                                                         else{
-                                                            await save("MLDataToEvaluate",MLData, function(){}, "replace" ,"AnalysisData");
+                                                            await save(yearToProcess+"MLDataToEvaluate",MLData, function(){}, "replace" ,"AnalysisData");
                                                         }
                                                     }
                                                 }
@@ -439,6 +571,17 @@ const { Console } = require('console');
                 
                 
                 
+            }
+        }
+
+        function extractTextBetween(inputString) {
+            const regex = /\d{4}-\d{2}-\d{2}-(.*)\.html/;
+            const match = inputString.match(regex);
+        
+            if (match && match[1]) {
+                return match[1];
+            } else {
+                return null; // Return null if no match is found
             }
         }
 
@@ -1024,7 +1167,7 @@ const { Console } = require('console');
                     var conferences = [];
                     
                         var isYear = parseInt(year.year_id);
-                        if(!isNaN(isYear) && (isYear ==2009)){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
+                        if(!isNaN(isYear) && (isYear <= 2009 && isYear >= 2007)){ //&& isYear != 2020 && isYear != 2004 && isYear != 2000 && isYear != 1987 && isYear != 1989 && isYear != 1985 && isYear != 1984 && isYear != 1983){
                             conferences = await load("conferences", year.year_id);
                             if(conferences.length > 0){
                                 for (let rt = 0; rt < conferences.length; rt++) {
