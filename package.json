@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "fs": "^0.0.1-security",
-    "selenium": "^2.20.0"
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.24.0"
   }
 }
