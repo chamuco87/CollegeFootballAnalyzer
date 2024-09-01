@@ -20,13 +20,13 @@ const { Console } = require('console');
 
           try {
 
-            await LogIn();
+            //await LogIn();
             //await getTableData("/cfb/years/" ,"years", "BaseData");
             //await getConferencesPerYear();
             //await getConferencesPerYearDetails();
             //await getSchoolPerYearDetails();
             //await getSchedulePerYearDetails();
-            await getGamesPerYearDetails();
+            //await getGamesPerYearDetails();
 
             // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010];
             // for (let index = 0; index < years.length; index++) {
@@ -57,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            //await enrichMLResults("2024NewMLResults", 2024);
+            await enrichMLResults("2024NewMLResults", 2024);
 
           } 
           catch(Ex){
@@ -338,6 +338,24 @@ const { Console } = require('console');
                 }
             });
 
+            var spreads = await load("August31thBets", "BetsData");
+            allMLRecords.forEach(game => {
+                var team1 = game.key.split("@")[0];
+                var team2 = game.key.split("@")[1];
+                if(team1 =="SouthernUtah"){
+                    var stopHere = "";
+                }
+                var matches = spreads.filter(function(item){
+                    return ((item.team.replace(/\s+/g, '') == team1 || item.team.replace(/\s+/g, '') == team2));
+                });
+                if(matches.length >0)
+                {
+                    game.spread = Math.abs(parseFloat(matches[0].handicap.replace("+","").replace("-","")));
+                    var stopHere = "";
+                }
+                
+                
+            });
             await save(fileToEnrich, allMLRecords, function(){},"replace" ,"AnalysisData");
 
         }
