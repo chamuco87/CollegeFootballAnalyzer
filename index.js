@@ -57,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            await enrichMLResults("2024NewMLResults", 2024);
+            //await enrichMLResults("2024NewMLResults", 2024);
 
           } 
           catch(Ex){
@@ -356,6 +356,65 @@ const { Console } = require('console');
                 
                 
             });
+
+
+            allMLRecords.forEach(game => {
+                if(game.spread){
+                var maxValue = (game.similarScoreDiffAvg + game.standardDeviation) >= (game.spread < game.previousScoreDiff) ? (game.similarScoreDiffAvg + game.standardDeviation) : (game.spread < game.previousScoreDiff);
+                maxValue = maxValue > (game.predictions.scoreDiff.LogisticRegression.prediction + game.predictions.scoreDiff.RandomForest.prediction) ? maxValue : (game.predictions.scoreDiff.LogisticRegression.prediction + game.predictions.scoreDiff.RandomForest.prediction);
+                
+                var minMLValue = game.predictions.scoreDiff.LogisticRegression.prediction <= game.predictions.scoreDiff.RandomForest.prediction ? game.predictions.scoreDiff.LogisticRegression.prediction : game.predictions.scoreDiff.RandomForest.prediction;
+                var minSimilar = (game.similarScoreDiffAvg - game.standardDeviation);
+                var minPrevious = game.previousScoreDiffAvg;
+                if(minPrevious)
+                {
+                    game.minValue = Math.min(minMLValue, minSimilar, minPrevious);
+                }
+                else{
+                    game.minValue = Math.min(minMLValue, minSimilar);
+                }
+
+                var maxMLValue = game.predictions.scoreDiff.LogisticRegression.prediction >= game.predictions.scoreDiff.RandomForest.prediction ? game.predictions.scoreDiff.LogisticRegression.prediction : game.predictions.scoreDiff.RandomForest.prediction;
+                var maxSimilar = (game.similarScoreDiffAvg + game.standardDeviation);
+                var maxPrevious = game.previousScoreDiffAvg;
+                if(maxPrevious)
+                {
+                    game.maxValue = Math.max(maxMLValue, maxSimilar, maxPrevious);
+                }
+                else{
+                    game.maxValue = Math.max(maxMLValue, maxSimilar);
+                }
+
+                game.maxDiff = Math.abs(game.spread - game.maxValue);
+                game.minDiff = Math.abs(game.spread - game.minValue);
+
+                if(game.maxValue > game.spread &&  game.minValue > game.spread ){
+                    game.spreadSelection = "winner";
+                    game.advantageDiff = game.maxValue - game.spread;
+                }
+                else if(game.maxValue < game.spread &&  game.minValue < game.spread){
+                    game.spreadSelection = "loser";
+                    game.advantageDiff = game.spread - game.maxValue;
+                }
+                else{
+                    game.spreadSelection = "to evaluate";
+                    game.advantageDiff = 0;
+                }
+                
+                
+            }
+            else{
+                game.maxValue = 0;
+                game.minValue = 0;
+                game.maxDiff = 0;
+                game.minDiff = 0;
+                game.advantageDiff = 0;
+                game.spreadSelection = "no data";
+            }
+        });
+
+
+
             await save(fileToEnrich, allMLRecords, function(){},"replace" ,"AnalysisData");
 
         }
