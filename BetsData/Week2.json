@@ -1,0 +1,492 @@
+[
+    {
+        "team": "BYU",
+        "handicap": "+11.0",
+        "overUnder": "O 55.5"
+    },
+    {
+        "team": "SMU",
+        "handicap": "-11.0",
+        "overUnder": "U 55.5"
+    },
+    {
+        "team": "Duke",
+        "handicap": "+2.5",
+        "overUnder": "O 38.5"
+    },
+    {
+        "team": "Northwestern",
+        "handicap": "-2.5",
+        "overUnder": "U 38.5"
+    },
+    {
+        "team": "Akron",
+        "handicap": "+23.0",
+        "overUnder": "O 41.5"
+    },
+    {
+        "team": "Rutgers",
+        "handicap": "-23.0",
+        "overUnder": "U 41.5"
+    },
+    {
+        "team": "Arkansas",
+        "handicap": "+7.0",
+        "overUnder": "O 60.0"
+    },
+    {
+        "team": "Oklahoma State",
+        "handicap": "-7.0",
+        "overUnder": "U 60.0"
+    },
+    {
+        "team": "Army",
+        "handicap": "+3.5",
+        "overUnder": "O 43.0"
+    },
+    {
+        "team": "Florida Atlantic",
+        "handicap": "-3.5",
+        "overUnder": "U 43.0"
+    },
+    {
+        "team": "Bowling Green",
+        "handicap": "+34.5",
+        "overUnder": "O 48.5"
+    },
+    {
+        "team": "Penn State",
+        "handicap": "-34.5",
+        "overUnder": "U 48.5"
+    },
+    {
+        "team": "Georgia Tech",
+        "handicap": "-3.0",
+        "overUnder": "O 61.0"
+    },
+    {
+        "team": "Syracuse",
+        "handicap": "+3.0",
+        "overUnder": "U 61.0"
+    },
+    {
+        "team": "Kansas State",
+        "handicap": "-10.0",
+        "overUnder": "O 49.5"
+    },
+    {
+        "team": "Tulane",
+        "handicap": "+10.0",
+        "overUnder": "U 49.5"
+    },
+    {
+        "team": "Pittsburgh",
+        "handicap": "+2.5",
+        "overUnder": "O 59.5"
+    },
+    {
+        "team": "Cincinnati",
+        "handicap": "-2.5",
+        "overUnder": "U 59.5"
+    },
+    {
+        "team": "Texas",
+        "handicap": "-7.0",
+        "overUnder": "O 44.5"
+    },
+    {
+        "team": "Michigan",
+        "handicap": "+7.0",
+        "overUnder": "U 44.5"
+    },
+    {
+        "team": "Troy",
+        "handicap": "+18.0",
+        "overUnder": "O 57.0"
+    },
+    {
+        "team": "Memphis",
+        "handicap": "-18.0",
+        "overUnder": "U 57.0"
+    },
+    {
+        "team": "Baylor",
+        "handicap": "+14.0",
+        "overUnder": "O 53.0"
+    },
+    {
+        "team": "Utah",
+        "handicap": "-14.0",
+        "overUnder": "U 53.0"
+    },
+    {
+        "team": "California",
+        "handicap": "+13.5",
+        "overUnder": "O 53.5"
+    },
+    {
+        "team": "Auburn",
+        "handicap": "-13.5",
+        "overUnder": "U 53.5"
+    },
+    {
+        "team": "Charlotte",
+        "handicap": "+22.0",
+        "overUnder": "O 48.0"
+    },
+    {
+        "team": "North Carolina",
+        "handicap": "-22.0",
+        "overUnder": "U 48.0"
+    },
+    {
+        "team": "Eastern Michigan",
+        "handicap": "+28.0",
+        "overUnder": "O 47.0"
+    },
+    {
+        "team": "Washington",
+        "handicap": "-28.0",
+        "overUnder": "U 47.0"
+    },
+    {
+        "team": "Iowa State",
+        "handicap": "+2.5",
+        "overUnder": "O 35.0"
+    },
+    {
+        "team": "Iowa",
+        "handicap": "-2.5",
+        "overUnder": "U 35.0"
+    },
+    {
+        "team": "Jacksonville State",
+        "handicap": "+28.0",
+        "overUnder": "O 58.0"
+    },
+    {
+        "team": "Louisville",
+        "handicap": "-28.0",
+        "overUnder": "U 58.0"
+    },
+    {
+        "team": "Massachusetts",
+        "handicap": "+19.5",
+        "overUnder": "O 50.5"
+    },
+    {
+        "team": "Toledo",
+        "handicap": "-19.5",
+        "overUnder": "U 50.5"
+    },
+    {
+        "team": "Michigan State",
+        "handicap": "+8.0",
+        "overUnder": "O 44.0"
+    },
+    {
+        "team": "Maryland",
+        "handicap": "-8.0",
+        "overUnder": "U 44.0"
+    },
+    {
+        "team": "Northern Illinois",
+        "handicap": "+29.0",
+        "overUnder": "O 45.5"
+    },
+    {
+        "team": "Notre Dame",
+        "handicap": "-29.0",
+        "overUnder": "U 45.5"
+    },
+    {
+        "team": "South Carolina",
+        "handicap": "+10.0",
+        "overUnder": "O 45.0"
+    },
+    {
+        "team": "Kentucky",
+        "handicap": "-10.0",
+        "overUnder": "U 45.0"
+    },
+    {
+        "team": "Temple",
+        "handicap": "+13.0",
+        "overUnder": "O 43.0"
+    },
+    {
+        "team": "Navy",
+        "handicap": "-13.0",
+        "overUnder": "U 43.0"
+    },
+    {
+        "team": "Texas San Antonio",
+        "handicap": "+1.5",
+        "overUnder": "O 61.0"
+    },
+    {
+        "team": "Texas State",
+        "handicap": "-1.5",
+        "overUnder": "U 61.0"
+    },
+    {
+        "team": "Middle Tennessee",
+        "handicap": "+41.5",
+        "overUnder": "O 63.0"
+    },
+    {
+        "team": "Mississippi",
+        "handicap": "-41.5",
+        "overUnder": "U 63.0"
+    },
+    {
+        "team": "Marshall",
+        "handicap": "+20.5",
+        "overUnder": "O 48.5"
+    },
+    {
+        "team": "Virginia Tech",
+        "handicap": "-20.5",
+        "overUnder": "U 48.5"
+    },
+    {
+        "team": "Central Michigan",
+        "handicap": "-6.5",
+        "overUnder": "O 51.5"
+    },
+    {
+        "team": "Florida Intl",
+        "handicap": "+6.5",
+        "overUnder": "U 51.5"
+    },
+    {
+        "team": "East Carolina",
+        "handicap": "-2.5",
+        "overUnder": "O 53.0"
+    },
+    {
+        "team": "Old Dominion",
+        "handicap": "+2.5",
+        "overUnder": "U 53.0"
+    },
+    {
+        "team": "South Alabama",
+        "handicap": "-2.0",
+        "overUnder": "O 54.0"
+    },
+    {
+        "team": "Ohio",
+        "handicap": "+2.0",
+        "overUnder": "U 54.0"
+    },
+    {
+        "team": "Sam Houston State Bearkats",
+        "handicap": "+21.0",
+        "overUnder": "O 59.0"
+    },
+    {
+        "team": "Central Florida",
+        "handicap": "-21.0",
+        "overUnder": "U 59.0"
+    },
+    {
+        "team": "Buffalo",
+        "handicap": "+34.5",
+        "overUnder": "O 51.0"
+    },
+    {
+        "team": "Missouri",
+        "handicap": "-34.5",
+        "overUnder": "U 51.0"
+    },
+    {
+        "team": "Georgia Southern",
+        "handicap": "-2.0",
+        "overUnder": "O 56.0"
+    },
+    {
+        "team": "Nevada",
+        "handicap": "+2.0",
+        "overUnder": "U 56.0"
+    },
+    {
+        "team": "Kansas",
+        "handicap": "-5.5",
+        "overUnder": "O 55.5"
+    },
+    {
+        "team": "Illinois",
+        "handicap": "+5.5",
+        "overUnder": "U 55.5"
+    },
+    {
+        "team": "San Jose State",
+        "handicap": "+6.5",
+        "overUnder": "O 45.5"
+    },
+    {
+        "team": "Air Force",
+        "handicap": "-6.5",
+        "overUnder": "U 45.5"
+    },
+    {
+        "team": "South Florida",
+        "handicap": "+31.0",
+        "overUnder": "O 64.0"
+    },
+    {
+        "team": "Alabama",
+        "handicap": "-31.0",
+        "overUnder": "U 64.0"
+    },
+    {
+        "team": "Tulsa",
+        "handicap": "+7.0",
+        "overUnder": "O 65.5"
+    },
+    {
+        "team": "Arkansas State",
+        "handicap": "-7.0",
+        "overUnder": "U 65.5"
+    },
+    {
+        "team": "UAB",
+        "handicap": "-12.5",
+        "overUnder": "O 55.0"
+    },
+    {
+        "team": "UL Monroe",
+        "handicap": "+12.5",
+        "overUnder": "U 55.0"
+    },
+    {
+        "team": "UL Lafayette",
+        "handicap": "-15.0",
+        "overUnder": "O 47.5"
+    },
+    {
+        "team": "Kennesaw State",
+        "handicap": "+15.0",
+        "overUnder": "U 47.5"
+    },
+    {
+        "team": "Virginia",
+        "handicap": "+2.0",
+        "overUnder": "O 54.0"
+    },
+    {
+        "team": "Wake Forest",
+        "handicap": "-2.0",
+        "overUnder": "U 54.0"
+    },
+    {
+        "team": "Colorado",
+        "handicap": "+7.0",
+        "overUnder": "O 57.5"
+    },
+    {
+        "team": "Nebraska",
+        "handicap": "-7.0",
+        "overUnder": "U 57.5"
+    },
+    {
+        "team": "Tennessee",
+        "handicap": "-7.5",
+        "overUnder": "O 61.0"
+    },
+    {
+        "team": "NC State",
+        "handicap": "+7.5",
+        "overUnder": "U 61.0"
+    },
+    {
+        "team": "Western Michigan",
+        "handicap": "+38.0",
+        "overUnder": "O 54.0"
+    },
+    {
+        "team": "Ohio State",
+        "handicap": "-38.0",
+        "overUnder": "U 54.0"
+    },
+    {
+        "team": "Houston",
+        "handicap": "+29.5",
+        "overUnder": "O 52.5"
+    },
+    {
+        "team": "Oklahoma",
+        "handicap": "-29.5",
+        "overUnder": "U 52.5"
+    },
+    {
+        "team": "Appalachian State",
+        "handicap": "+18.0",
+        "overUnder": "O 52.0"
+    },
+    {
+        "team": "Clemson",
+        "handicap": "-18.0",
+        "overUnder": "U 52.0"
+    },
+    {
+        "team": "Boise State",
+        "handicap": "+18.5",
+        "overUnder": "O 61.0"
+    },
+    {
+        "team": "Oregon",
+        "handicap": "-18.5",
+        "overUnder": "U 61.0"
+    },
+    {
+        "team": "Texas Tech",
+        "handicap": "-1.5",
+        "overUnder": "O 65.5"
+    },
+    {
+        "team": "Washington State",
+        "handicap": "+1.5",
+        "overUnder": "U 65.5"
+    },
+    {
+        "team": "Libertay",
+        "handicap": "-22.0",
+        "overUnder": "O 59.0"
+    },
+    {
+        "team": "New Mexico State",
+        "handicap": "+22.0",
+        "overUnder": "U 59.0"
+    },
+    {
+        "team": "Mississippi State",
+        "handicap": "+6.5",
+        "overUnder": "O 56.5"
+    },
+    {
+        "team": "Arizona State",
+        "handicap": "-6.5",
+        "overUnder": "U 56.5"
+    },
+    {
+        "team": "Oregon State",
+        "handicap": "-4.0",
+        "overUnder": "O 55.0"
+    },
+    {
+        "team": "San Diego State",
+        "handicap": "+4.0",
+        "overUnder": "U 55.0"
+    },
+    {
+        "team": "Utah State",
+        "handicap": "+28.5",
+        "overUnder": "O 63.0"
+    },
+    {
+        "team": "USC",
+        "handicap": "-28.5",
+        "overUnder": "U 63.0"
+    }
+]
