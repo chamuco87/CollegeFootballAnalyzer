@@ -36,21 +36,21 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            //var years = [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = false;
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
-            // var MLData = [];
-            // for (let index = 0; index < years.length; index++) {
-            //     const yearTo = years[index];
-            //     var data = await load(yearTo+"MLData", "AnalysisData")
-            //     MLData = MLData.concat(data);
-            //     await save("MLData",MLData, function(){}, "replace", "AnalysisData")
-            // }
+            var MLData = [];
+            for (let index = 0; index < years.length; index++) {
+                const yearTo = years[index];
+                var data = await load(yearTo+"MLData", "AnalysisData")
+                MLData = MLData.concat(data);
+                await save("MLData",MLData, function(){}, "replace", "AnalysisData")
+            }
 
-            // var years = [2023, 2024];
+            // var years = [2024, 2023];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = true;
@@ -295,6 +295,11 @@ const { Console } = require('console');
                     record.scoreDiff = sel[0].scoreDiff;
                     record.totalPoints = sel[0].totalPoints;
                 }
+                else{
+                    record.isHomeWinner = 0;
+                    record.scoreDiff = 0;
+                    record.totalPoints = 0;
+                }
             });
             }
             catch{}
@@ -303,7 +308,8 @@ const { Console } = require('console');
             var analysisArray = await load("MLData", "AnalysisData");
             var targetData = await load(yearToProcess+"MLDataToEvaluate", "AnalysisData");
             allMLRecords.forEach(game => {
-                var targetGame = targetData.filter(function(item){return item.key == game.key})[0];
+                var keyParts = game.key.split("@");
+                var targetGame = targetData.filter(function(item){return (item.key.indexOf(keyParts[0])>=0 && item.key.indexOf(keyParts[1])>=0 && item.key.indexOf(keyParts[2])>=0)})[0];
                 const matches = findMatches(analysisArray, targetGame, 5);
                 const scoreMatches =  findMatchesScoreDiff(analysisArray, targetGame, 10);
 //---------------------------------------------------------------------------------------------------------------
@@ -600,7 +606,7 @@ const { Console } = require('console');
             
             homeWinnerCount = homeWinnerCount + game.predictions.isHomeWinner.SimilarScore.prediction == 1 ? 1:0;
             game.predictions.isHomeWinner.SimilarScore.prediction == 1 ? homeWinnerProb.push(game.predictions.isHomeWinner.SimilarScore.probability):0;
-
+            //To do previous
             projectedScore.isHomeWinner = homeWinnerProb.length > awayWinnerProb.length ? 1 : homeWinnerProb.length < awayWinnerProb.length ? 0 : Math.round(calculateAverage(homeWinnerProb)*100) >= Math.round(calculateAverage(awayWinnerProb)*100) ? 1:0;
             projectedScore.chances = projectedScore.isHomeWinner == 1 ? Math.round(((homeWinnerProb.length /(awayWinnerProb.length+homeWinnerProb.length))*100)) : Math.round(((awayWinnerProb.length /(awayWinnerProb.length+homeWinnerProb.length))*100));
             projectedScore.probability =   projectedScore.isHomeWinner == 1 ? Math.round(calculateAverage(homeWinnerProb)*100) : Math.round(calculateAverage(awayWinnerProb)*100);
@@ -959,7 +965,7 @@ const { Console } = require('console');
                                                         else{
                                                             gameResults = await load("formatedRecords","AnalysisData/" + (year.year_id));
                                                             var selectedGameResults = gameResults.filter(function(item){return item.team == home_name});
-                                                            var selectedGameResult = selectedGameResults[selectedGameResults.length-1];
+                                                            var selectedGameResult = selectedGameResults[rat-1];
                                                         }
                                                     }
                                                     catch{
@@ -980,7 +986,11 @@ const { Console } = require('console');
                                                             var arr = [];
                                                             averageRecords = await load("averageRecords","AnalysisData/" + (year.year_id));
                                                             var selectedAverage = averageRecords.filter(function(item){return item.team == home_name});
-                                                            var selectedAvg = selectedAverage[selectedAverage.length-1];
+                                                            var selectedAvg = selectedAverage[rat-1];
+                                                            if((rat-1) ==0 )
+                                                            {
+                                                                selectedAvg = selectedGameResult;
+                                                            }
                                                             arr.push(selectedAvg);
                                                             selectedAverage = arr;
                                                         }
@@ -1001,7 +1011,8 @@ const { Console } = require('console');
                                                         else{
                                                             gameResults = await load("formatedRecords","AnalysisData/" + (year.year_id));
                                                             var opponentGameResults = gameResults.filter(function(item){return item.team == away_name});
-                                                            var opponentGameResult = opponentGameResults[opponentGameResults.length-1];
+                                                            var opponentGameResult = opponentGameResults[rat-1];
+                                                            
                                                         }
                                                     }
                                                     catch{
@@ -1022,7 +1033,11 @@ const { Console } = require('console');
                                                             var arr = [];
                                                             averageRecords = await load("averageRecords","AnalysisData/" + (year.year_id));
                                                             var opponentAverage = averageRecords.filter(function(item){return item.team == away_name});
-                                                            var opponentAvg = opponentAverage[opponentAverage.length-1];
+                                                            var opponentAvg = opponentAverage[rat-1];
+                                                            if((rat-1) ==0 )
+                                                                {
+                                                                    opponentAvg = opponentGameResult;
+                                                                }
                                                             arr.push(opponentAvg);
                                                             opponentAverage = arr;
                                                         }
@@ -1124,6 +1139,10 @@ const { Console } = require('console');
           var uniqueValues = Array.from(new Set(teams));
           for (let index = 0; index < uniqueValues.length; index++) {
               const team = uniqueValues[index];
+              if(team == "Florida_Atlantic" || team == "FloridaAtlantic")
+              {
+                var stopHere = "";
+              }
               var games = data.filter(function(item){
                   return item.team == team;
               });
