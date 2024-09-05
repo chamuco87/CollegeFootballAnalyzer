@@ -36,19 +36,19 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            //var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = false;
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
-            var MLData = [];
-            for (let index = 0; index < years.length; index++) {
-                const yearTo = years[index];
-                var data = await load(yearTo+"MLData", "AnalysisData")
-                MLData = MLData.concat(data);
-                await save("MLData",MLData, function(){}, "replace", "AnalysisData")
-            }
+            // var MLData = [];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     var data = await load(yearTo+"MLData", "AnalysisData")
+            //     MLData = MLData.concat(data);
+            //     await save("MLData",MLData, function(){}, "replace", "AnalysisData")
+            // }
 
             // var years = [2024, 2023];
             // for (let index = 0; index < years.length; index++) {
@@ -291,7 +291,10 @@ const { Console } = require('console');
                 var sel = yearResults.filter(function(item){return (item.key.indexOf(keyParts[0])>=0 && item.key.indexOf(keyParts[1])>=0 && item.key.indexOf(keyParts[2])>=0)});
                 if(sel.length > 0)
                 {
-                    record.isHomeWinner = sel[0].isHomeWinner;
+                    var awayTeamSel = sel[0].key.split("@")[0];
+                    var homeTeamSel = sel[0].key.split("@")[1];
+                    var winner = sel[0].isHomeWinner == 0 ? awayTeamSel : homeTeamSel;
+                    record.isHomeWinner = winner == keyParts[0] ? 0 : 1;
                     record.scoreDiff = sel[0].scoreDiff;
                     record.totalPoints = sel[0].totalPoints;
                 }
@@ -432,9 +435,9 @@ const { Console } = require('console');
                 // var probabilities = calculateAverage(similarGamesWinner);
                 if(matches.length > 0){
                     var previousScoreDiff = matches.map(n => Math.abs(n.scoreDiff));
-                    game.previousScoreDiffAvg = Math.round(calculateAverage(previousScoreDiff));
-                    game.previousScoreDiffStdDev = Math.round(calculateStandardDeviation(previousScoreDiff));
-                    game.previousCount = previousScoreDiff.length;
+                    var previousScoreDiffAvg = Math.round(calculateAverage(previousScoreDiff));
+                    var previousScoreDiffStdDev = Math.round(calculateStandardDeviation(previousScoreDiff));
+                    var previousCount = previousScoreDiff.length;
 
 
                     var previousMatchesGamesWinner = matches.map(n => n.isHomeWinner);
@@ -442,7 +445,7 @@ const { Console } = require('console');
                     var previousMatchesPrediction = previousMatchesProbabilities <= .5 ? 0 : 1;
                     var previousMatchesProbability = game.previousMatchesPrediction == 0 ? 1-previousMatchesProbabilities : previousMatchesProbabilities;
 
-                    game.predictions.isHomeWinner["PreviousMatches"] = { prediction: previousMatchesPrediction, count: previousMatchesGamesWinner.length};
+                    game.predictions.isHomeWinner["PreviousMatches"] = { prediction: previousMatchesPrediction, probability: previousMatchesProbability, count:previousMatchesGamesWinner.length };
 
                     var previousMatchesScoreDiff = matches.map(n => Math.abs(n.scoreDiff));
                     var previousMatchesScoreDiffAvg = Math.round(calculateAverage(previousMatchesScoreDiff));
@@ -459,7 +462,7 @@ const { Console } = require('console');
 
                 }
                 else{
-                    game.predictions.isHomeWinner["PreviousMatches"] = { prediction: 0, count: 0};
+                    game.predictions.isHomeWinner["PreviousMatches"] = { prediction: 0, probability: 0, count:0};
                     game.predictions.scoreDiff["PreviousMatches"] = { prediction: 0, count: 0};  
                     game.predictions.totalPoints["PreviousMatches"] = { prediction: 0, count: 0};
                 }
@@ -478,80 +481,135 @@ const { Console } = require('console');
 
 
 
-            // var spreads = await load("August31thBets", "BetsData");
-            // allMLRecords.forEach(game => {
-            //     var team1 = game.key.split("@")[0];
-            //     var team2 = game.key.split("@")[1];
-            //     if(team1 =="SouthernUtah"){
-            //         var stopHere = "";
-            //     }
-            //     var matches = spreads.filter(function(item){
-            //         return ((item.team.replace(/\s+/g, '') == team1 || item.team.replace(/\s+/g, '') == team2));
-            //     });
-            //     if(matches.length >0)
-            //     {
-            //         game.spread = Math.abs(parseFloat(matches[0].handicap.replace("+","").replace("-","")));
-            //         var stopHere = "";
-            //     }
+            try{
+                var bet365TeamCatalog = await load("bet365TeamCatalog", "BetsData");
+            }
+            catch{
+                var bet365TeamCatalog = [];
+            }
+
+            var spreads = await load("August31thBets", "BetsData");
+            var matching = [];
+            var notMatching = [];
+            allMLRecords.forEach(game => {
+                var team1 = game.key.split("@")[0];
+                var team2 = game.key.split("@")[1];
+                
+                if(team1 =="SouthernUtah"){
+                    var stopHere = "";
+                }
+                var matches = spreads.filter(function(item){
+                    return ((item.team.replace(/\s+/g, '') == team1));
+                });
+                if(matches.length >0)
+                {
+                    matching.push({"bet365": matches[0].team, "team":team1 });
+                }
+                else{
+                    matches = spreads.filter(function(item){
+                        return ((item.team.replace(/\s+/g, '') == team2));
+                    });
+
+                    if(matches.length >0)
+                    {
+                        matching.push({"bet365": matches[0].team, "team":team2 });
+                    }
+                    else{
+                            var translatedValue = bet365TeamCatalog.filter(function(item){return (item.team == team1 || item.team == team2)});
+                            if(translatedValue.length > 0)
+                            {
+                                matches = spreads.filter(function(item){
+                                    return ((item.team.replace(/\s+/g, '') == translatedValue[0].bet365));
+                                });
+                            }
+                            else if(matches.length ==0)
+                            {
+                                notMatching.push(team1);
+                                notMatching.push(team2);
+                                
+                            }
+                        
+                    }
+                }
+                if(matches.length >0)
+                {
+                    if(matches[0].handicap){
+                        game.spread = Math.abs(parseFloat(matches[0].handicap.replace("+","").replace("-","")));
+                    }
+                    if(matches[0].overUnder){
+                        game.overUnder = Math.abs(parseFloat(matches[0].overUnder.replace("O ","").replace("U ","")));
+                    }
+                    var stopHere = "";
+                }
                 
                 
-            // });
+            });
+
+            var uniqueNotMatching = Array.from(new Set(notMatching));
+            
+            for (let er = 0; er < uniqueNotMatching.length; er++) {
+                const team = uniqueNotMatching[er];
+                var isRecorded = bet365TeamCatalog.filter(function(item){return (item.team == team)});
+                if(isRecorded.length == 0)
+                {
+                    var record = {"bet365": "", "team":team }
+                    bet365TeamCatalog.push(record);
+                }
+            }
+
+            await save("bet365TeamCatalog", bet365TeamCatalog, function(){}, "replace","BetsData")
 
 
-        //     allMLRecords.forEach(game => {
-        //         if(game.spread){
-        //         var maxValue = (game.similarScoreDiffAvg + game.similarScoreDiffStandardDeviation) >= (game.spread < game.previousScoreDiff) ? (game.similarScoreDiffAvg + game.similarScoreDiffStandardDeviation) : (game.spread < game.previousScoreDiff);
-        //         maxValue = maxValue > (game.predictions.scoreDiff.LogisticRegression.prediction + game.predictions.scoreDiff.RandomForest.prediction) ? maxValue : (game.predictions.scoreDiff.LogisticRegression.prediction + game.predictions.scoreDiff.RandomForest.prediction);
+            allMLRecords.forEach(game => {
+            if(game.spread){
+            
+                if(game.spread <= game.projectedResults.scoreDiff.min && game.spread <= game.projectedResults.scoreDiff.max)
+                {
+                    game.handicapBetType = "handicap winner";
+                    game.handicapAdv = ((game.projectedResults.scoreDiff.min-game.spread) + (game.projectedResults.scoreDiff.max - game.spread))/2;
+                }
+                else if(game.spread >= game.projectedResults.scoreDiff.min && game.spread >= game.projectedResults.scoreDiff.max)
+                {
+                    game.handicapBetType = "handicap loser";
+                    game.handicapAdv = ((game.spread - game.projectedResults.scoreDiff.min) + (game.spread - game.projectedResults.scoreDiff.max))/2;
+                }
+                else{
+                    game.handicapBetType = "no bet";
+                    game.handicapAdv = 0;
+                }
                 
-        //         var minMLValue = game.predictions.scoreDiff.LogisticRegression.prediction <= game.predictions.scoreDiff.RandomForest.prediction ? game.predictions.scoreDiff.LogisticRegression.prediction : game.predictions.scoreDiff.RandomForest.prediction;
-        //         var minSimilar = (game.similarScoreDiffAvg - game.similarScoreDiffStandardDeviation);
-        //         var minPrevious = game.previousScoreDiffAvg;
-        //         if(minPrevious)
-        //         {
-        //             game.minValue = Math.min(minMLValue, minSimilar, minPrevious);
-        //         }
-        //         else{
-        //             game.minValue = Math.min(minMLValue, minSimilar);
-        //         }
+            }
+            else{
+                game.handicapBetType = "no bet";
+                game.handicapAdv = 0;
+            }
 
-        //         var maxMLValue = game.predictions.scoreDiff.LogisticRegression.prediction >= game.predictions.scoreDiff.RandomForest.prediction ? game.predictions.scoreDiff.LogisticRegression.prediction : game.predictions.scoreDiff.RandomForest.prediction;
-        //         var maxSimilar = (game.similarScoreDiffAvg + game.similarScoreDiffStandardDeviation);
-        //         var maxPrevious = game.previousScoreDiffAvg;
-        //         if(maxPrevious)
-        //         {
-        //             game.maxValue = Math.max(maxMLValue, maxSimilar, maxPrevious);
-        //         }
-        //         else{
-        //             game.maxValue = Math.max(maxMLValue, maxSimilar);
-        //         }
 
-        //         game.maxDiff = Math.abs(game.spread - game.maxValue);
-        //         game.minDiff = Math.abs(game.spread - game.minValue);
-
-        //         if(game.maxValue > game.spread &&  game.minValue > game.spread ){
-        //             game.spreadSelection = "winner";
-        //             game.advantageDiff = game.maxValue - game.spread;
-        //         }
-        //         else if(game.maxValue < game.spread &&  game.minValue < game.spread){
-        //             game.spreadSelection = "loser";
-        //             game.advantageDiff = game.spread - game.maxValue;
-        //         }
-        //         else{
-        //             game.spreadSelection = "to evaluate";
-        //             game.advantageDiff = 0;
-        //         }
+            if(game.overUnder){
+            
+                if(game.overUnder <= game.projectedResults.totalPoints.min && game.overUnder <= game.projectedResults.totalPoints.max)
+                {
+                    game.overUnderBetType = "over";
+                    game.overUnderAdv = (game.projectedResults.totalPoints.min-game.overUnder);
+                }
+                else if(game.overUnder >= game.projectedResults.totalPoints.min && game.overUnder >= game.projectedResults.totalPoints.max)
+                {
+                    game.overUnderBetType = "under";
+                    game.overUnderAdv = (game.overUnder - game.projectedResults.totalPoints.max);
+                }
+                else{
+                    game.overUnderBetType = "no bet";
+                    game.overUnderAdv = 0;
+                }
                 
-                
-        //     }
-        //     else{
-        //         game.maxValue = 0;
-        //         game.minValue = 0;
-        //         game.maxDiff = 0;
-        //         game.minDiff = 0;
-        //         game.advantageDiff = 0;
-        //         game.spreadSelection = "no data";
-        //     }
-        // });
+            }
+            else{
+                game.overUnderBetType = "no bet";
+                game.overUnderAdv = 0;
+            }
+
+
+        });
 
         
 
@@ -607,6 +665,16 @@ const { Console } = require('console');
             homeWinnerCount = homeWinnerCount + game.predictions.isHomeWinner.SimilarScore.prediction == 1 ? 1:0;
             game.predictions.isHomeWinner.SimilarScore.prediction == 1 ? homeWinnerProb.push(game.predictions.isHomeWinner.SimilarScore.probability):0;
             //To do previous
+
+            if(game.predictions.isHomeWinner.PreviousMatches.count > 0)
+            {
+                awayWinnerCount = awayWinnerCount + game.predictions.isHomeWinner.PreviousMatches.prediction == 0 ? 1:0;
+                game.predictions.isHomeWinner.PreviousMatches.prediction == 0 ? awayWinnerProb.push(game.predictions.isHomeWinner.PreviousMatches.probability):0;
+                
+                homeWinnerCount = homeWinnerCount + game.predictions.isHomeWinner.PreviousMatches.prediction == 1 ? 1:0;
+                game.predictions.isHomeWinner.PreviousMatches.prediction == 1 ? homeWinnerProb.push(game.predictions.isHomeWinner.PreviousMatches.probability):0;
+            }
+
             projectedScore.isHomeWinner = homeWinnerProb.length > awayWinnerProb.length ? 1 : homeWinnerProb.length < awayWinnerProb.length ? 0 : Math.round(calculateAverage(homeWinnerProb)*100) >= Math.round(calculateAverage(awayWinnerProb)*100) ? 1:0;
             projectedScore.chances = projectedScore.isHomeWinner == 1 ? Math.round(((homeWinnerProb.length /(awayWinnerProb.length+homeWinnerProb.length))*100)) : Math.round(((awayWinnerProb.length /(awayWinnerProb.length+homeWinnerProb.length))*100));
             projectedScore.probability =   projectedScore.isHomeWinner == 1 ? Math.round(calculateAverage(homeWinnerProb)*100) : Math.round(calculateAverage(awayWinnerProb)*100);
@@ -2014,13 +2082,13 @@ async function JSgetTableDetails(tableId){
 async function JSgetHandicapData()
 {
     var teams = document.getElementsByClassName("sac-ParticipantFixtureDetailsHigherAmericanFootball_TeamWrapper");
-
+    var mlOdds = document.getElementsByClassName("sac-ParticipantOddsOnly50OTB_Odds");
     var handicaps = document.getElementsByClassName("sac-ParticipantCenteredStacked50OTB_Handicap");
     var initialUnderIndex = handicaps.length/2;
     var handicapData = [];
     for(var i=0; i< teams.length; i++)
     {
-      var handicap ={ team:teams[i].innerText, handicap:handicaps[i].innerText, overUnder:handicaps[initialUnderIndex].innerText};
+      var handicap ={ team:teams[i].innerText, handicap:handicaps[i].innerText, overUnder:handicaps[initialUnderIndex].innerText, mlOdds: mlOdds[i].innerText};
       handicapData.push(handicap);
         initialUnderIndex++;
     }
