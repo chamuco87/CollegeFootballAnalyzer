@@ -2203,4 +2203,31 @@ async function JSUpdateBetAmounts(){
         console.log(betFooterValue);
         console.log(returnFooterValue);
     }
+	
+	var bets  = document.getElementsByClassName("myb-SettledBetItem");
+    for (let index = 0; index < bets.length; index++) {
+        var bet = bets[index];
+        var betHeader = bet.getElementsByClassName("myb-SettledBetItemHeader_Text")[0];
+        var betFooter = bet.getElementsByClassName("myx-StakeDisplay_StakeWrapper")[0];
+        var returnFooter = bet.getElementsByClassName("myb-SettledBetItemFooter_BetInformationText")[0];
+		var returnFooterB = bet.getElementsByClassName("myb-SettledBetItemFooter_SettledButtonReturnText")[0];
+        console.log(returnFooterB);
+        var betHeaderToBeReplaced = betHeader.innerText.match(regex)[0];
+       
+        var betFooterToBeReplaced = betFooter.innerText.match(regex)[0];
+        var returnFooterToBeReplaced = returnFooter.innerText.match(regex)[0];
+        const betHeaderValue = new Intl.NumberFormat('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2}).format((parseFloat(betHeaderToBeReplaced)*10).toFixed(2));
+        
+        const betFooterValue = new Intl.NumberFormat('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2}).format((parseFloat(betFooterToBeReplaced)*10).toFixed(2));
+        const returnFooterValue = new Intl.NumberFormat('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2}).format((parseFloat(returnFooterToBeReplaced)*10).toFixed(2));
+        betHeader.innerText = betHeader.innerText.replace(betHeaderToBeReplaced, betHeaderValue);
+        
+        betFooter.innerText = betFooter.innerText.replace(betFooterToBeReplaced, betFooterValue);
+        returnFooterB.innerText = returnFooterB.innerText.replace(returnFooterToBeReplaced, returnFooterValue);
+        returnFooter.innerText = returnFooter.innerText.replace(returnFooterToBeReplaced, returnFooterValue);
+        console.log(betHeaderValue);
+        //console.log(returnHeaderValue);
+        console.log(betFooterValue);
+        console.log(returnFooterValue);
+    }
 }
