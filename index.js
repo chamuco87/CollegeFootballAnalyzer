@@ -483,7 +483,7 @@ const { Console } = require('console');
 
             try{
                 var bet365TeamCatalog = await load("bet365TeamCatalog", "BetsData");
-                var spreads = await load("Week3", "BetsData");
+                var spreads = await load("Week3Updated", "BetsData");
             }
             catch{
                 var bet365TeamCatalog = [];
