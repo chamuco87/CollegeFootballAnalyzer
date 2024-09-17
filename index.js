@@ -28,7 +28,7 @@ const { Console } = require('console');
             //await getSchedulePerYearDetails();
             //await getGamesPerYearDetails();
 
-            // var years =[2024]//, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            // var years =[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     await prepareData(yearTo);
@@ -36,7 +36,7 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            //var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = false;
@@ -483,7 +483,7 @@ const { Console } = require('console');
 
             try{
                 var bet365TeamCatalog = await load("bet365TeamCatalog", "BetsData");
-                var spreads = await load("Week3Updated", "BetsData");
+                var spreads = await load("Week4", "BetsData");
             }
             catch{
                 var bet365TeamCatalog = [];
@@ -544,6 +544,10 @@ const { Console } = require('console');
                     if(matches[0].mlOdds){
                         
                         game.mlOdds = Math.abs(parseFloat(matches[0].mlOdds));
+                    }
+                    if(matches[0].time){
+                        
+                        game.time = matches[0].time;
                     }
                     var stopHere = "";
                 }
@@ -1004,7 +1008,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 2){
+                                                if(rat <= 3){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -1921,7 +1925,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-09-0") >= 0)){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
+                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-09-1") >= 0)){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
@@ -2159,13 +2163,24 @@ async function JSgetHandicapData()
     var teams = document.getElementsByClassName("sac-ParticipantFixtureDetailsHigherAmericanFootball_TeamWrapper");
     var mlOdds = document.getElementsByClassName("sac-ParticipantOddsOnly50OTB_Odds");
     var handicaps = document.getElementsByClassName("sac-ParticipantCenteredStacked50OTB_Handicap");
-    var initialUnderIndex = handicaps.length/2;
+    var times = document.getElementsByClassName("sac-ParticipantFixtureDetailsHigherAmericanFootball_Details");
+    var initialUnderIndex = handicaps.length / 2;
     var handicapData = [];
-    for(var i=0; i< teams.length; i++)
-    {
-      var handicap ={ team:teams[i].innerText, handicap:handicaps[i].innerText, overUnder:handicaps[initialUnderIndex].innerText, mlOdds: mlOdds[i].innerText};
-      handicapData.push(handicap);
+    var timeIndex = 0;
+    for (var i = 0; i < teams.length; i++) {
+        var handicap = {
+            team: teams[i].innerText,
+            time: times[timeIndex].innerText,
+            handicap: handicaps[i].innerText,
+            overUnder: handicaps[initialUnderIndex].innerText,
+            mlOdds: mlOdds[i].innerText
+        };
+        handicapData.push(handicap);
         initialUnderIndex++;
+        if(i % 2 == 0 && i != 0)
+        {
+            timeIndex++;
+        }
     }
     var jdata = JSON.stringify(handicapData);
     console.log(jdata);
