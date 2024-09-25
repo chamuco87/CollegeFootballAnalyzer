@@ -57,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            await enrichMLResults("2024NewMLResults", 2024);
+            await enrichMLResults("2023NewMLResults", 2023, "");
 
           } 
           catch(Ex){
@@ -280,7 +280,7 @@ const { Console } = require('console');
             return standardDeviation;
         }
 
-        async function enrichMLResults(fileToEnrich, yearToProcess)
+        async function enrichMLResults(fileToEnrich, yearToProcess, betData)
         {
             var allMLRecords = await load(fileToEnrich,"AnalysisData");
             try{
@@ -483,7 +483,7 @@ const { Console } = require('console');
 
             try{
                 var bet365TeamCatalog = await load("bet365TeamCatalog", "BetsData");
-                var spreads = await load("Week4", "BetsData");
+                var spreads = await load(betData, "BetsData");
             }
             catch{
                 var bet365TeamCatalog = [];
@@ -1008,7 +1008,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 3){
+                                                if(rat <= 5){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -1925,7 +1925,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-09-1") >= 0)){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
+                                                        if(schedule.date_gameLink && ((schedule.date_gameLink.indexOf("2024-09-1") >= 0) || (schedule.date_gameLink.indexOf("2024-09-2") >= 0)) && (schedule.date_gameLink.indexOf("2024-09-28") < 0)){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
