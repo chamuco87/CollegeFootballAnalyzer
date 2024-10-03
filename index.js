@@ -50,7 +50,7 @@ const { Console } = require('console');
             //     await save("MLData",MLData, function(){}, "replace", "AnalysisData")
             // }
 
-            // var years = [2024];
+            // var years = [2023];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = true;
@@ -1008,7 +1008,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 5){
+                                                if(rat <= 6){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -1655,12 +1655,15 @@ const { Console } = require('console');
                 }
                 catch(Ex){
                     try{
-                        const searchText = "We do not have stats for this school at this time";
-                        let paragraph = await driver.findElement(By.xpath(`//p[contains(text(), "${searchText}")]`));
+                        var searchText = "We do not have stats for this school at this time";
+                        var paragraph = await driver.findElement(By.xpath(`//p[contains(text(), "${searchText}")]`));
                         if (paragraph) {
                             exceptions.push(url);
                             await save("exceptions", exceptions, function(){}, "replace", "BaseData");
                         }
+
+                        
+                        
                     }
                     catch{}
                     try{
@@ -1672,6 +1675,7 @@ const { Console } = require('console');
                         }
                     }
                     catch{}
+                    try{
                     const searchText3 = "Cancelled";
                         let paragraph2 = await driver.findElement(By.xpath(`//div[contains(text(), "${searchText3}")]`));
                         if (paragraph2) {
@@ -1680,6 +1684,17 @@ const { Console } = require('console');
                         }
                     console.log("Table doesn't exits.");
                     return 1;
+                    }
+                    catch{}
+                    try{
+                        var searchText = "Liberty at Appalachian State Box Score, September 28, 2024";
+                        var paragraph = await driver.findElement(By.xpath(`//h1[contains(text(), "${searchText}")]`));
+                        if (paragraph) {
+                            exceptions.push(url);
+                            await save("exceptions", exceptions, function(){}, "replace", "BaseData");
+                        }
+                    }
+                    catch{}
                 }
             }
 
@@ -1925,7 +1940,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && ((schedule.date_gameLink.indexOf("2024-09-1") >= 0) || (schedule.date_gameLink.indexOf("2024-09-2") >= 0)) && (schedule.date_gameLink.indexOf("2024-09-28") < 0)){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
+                                                        if(schedule.date_gameLink && ((schedule.date_gameLink.indexOf("2024-09-1") >= 0) || (schedule.date_gameLink.indexOf("2024-09-2") >= 0))){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
