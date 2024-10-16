@@ -28,7 +28,7 @@ const { Console } = require('console');
             //await getSchedulePerYearDetails();
             //await getGamesPerYearDetails();
 
-            // var years =[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            // var years = [2024];//[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     await prepareData(yearTo);
@@ -36,28 +36,28 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            var years = [2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            //var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = false;
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
-            var MLData = [];
-            for (let index = 0; index < years.length; index++) {
-                const yearTo = years[index];
-                var data = await load(yearTo+"MLData", "AnalysisData")
-                MLData = MLData.concat(data);
-                await save("MLData",MLData, function(){}, "replace", "AnalysisData")
-            }
+            // var MLData = [];
+            // for (let index = 0; index < years.length; index++) {
+            //     const yearTo = years[index];
+            //     var data = await load(yearTo+"MLData", "AnalysisData")
+            //     MLData = MLData.concat(data);
+            //     await save("MLData",MLData, function(){}, "replace", "AnalysisData")
+            // }
 
-            // var years = [2023, 2022];
+            // var years = [2024];
             // for (let index = 0; index < years.length; index++) {
             //     const yearTo = years[index];
             //     var toBeEvaluated = true;
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            await enrichMLResults("2023NewMLResults", 2023, "Week7", 2022);
+            await enrichMLResults("2024NewMLResults", 2024, "Week8", 2023);
 
           } 
           catch(Ex){
@@ -584,6 +584,83 @@ const { Console } = require('console');
                 catch{}
 
 
+                try{
+                    var yearResults = await load("gameRecords","AnalysisData/"+yearToProcess);
+                    allMLRecords.forEach(record => {
+                        var keyParts = record.key.split("@");
+        
+                        var awaySelAway = yearResults.filter(function(item){  
+                            var parts =  item.key.split("@");
+                            return (parts[0].indexOf(keyParts[0])>=0)
+                        });
+                        var awaySelHome = yearResults.filter(function(item){  
+                            var parts =  item.key.split("@");
+                            return (parts[1].indexOf(keyParts[0])>=0)
+                        });
+    
+                        var awaySelWin = awaySelAway.filter(function(item){return item.isHomeWinner == 0}).concat(awaySelHome.filter(function(item){return item.isHomeWinner == 1}));
+                        var awaySelLose = awaySelAway.filter(function(item){return item.isHomeWinner == 1}).concat(awaySelHome.filter(function(item){return item.isHomeWinner == 0}));
+    
+                        
+                        if(awaySelWin.length > 0)
+                        {
+                            var awayPlayed = awaySelWin.filter(function(item){return item.scoreDiff > 0 });
+                            var awayScoreDiff = awayPlayed.map(function(item){return item.scoreDiff});
+                            record.projectedResults["scoreDiff"]["awayScoreDiffWinAvg"] = calculateAverage(awayScoreDiff);
+                        }
+                        else{
+                            record.projectedResults.scoreDiff.awayScoreDiffWinAvg = 0;
+                        }
+                        if(awaySelLose.length > 0)
+                        {
+                            var awayPlayed = awaySelLose.filter(function(item){return item.scoreDiff > 0 });
+                            var awayScoreDiff = awayPlayed.map(function(item){return item.scoreDiff});
+                            record.projectedResults["scoreDiff"]["awayScoreDiffLoseAvg"] = calculateAverage(awayScoreDiff);
+                        }
+                        else{
+                            record.projectedResults.scoreDiff.awayScoreDiffLoseAvg = 0;
+                        }
+    
+    
+                        var homeSelAway = yearResults.filter(function(item){  
+                            var parts =  item.key.split("@");
+                            return (parts[0].indexOf(keyParts[1])>=0)
+                        });
+                        var homeSelHome = yearResults.filter(function(item){  
+                            var parts =  item.key.split("@");
+                            return (parts[1].indexOf(keyParts[1])>=0)
+                        });
+    
+                        var homeSelWin = homeSelAway.filter(function(item){return item.isHomeWinner == 0}).concat(homeSelAway.filter(function(item){return item.isHomeWinner == 1}));
+                        var homeSelLose = homeSelHome.filter(function(item){return item.isHomeWinner == 1}).concat(homeSelHome.filter(function(item){return item.isHomeWinner == 0}));
+    
+                        
+                        if(homeSelWin.length > 0)
+                        {
+                            var awayPlayed = homeSelWin.filter(function(item){return item.scoreDiff > 0 });
+                            var awayScoreDiff = awayPlayed.map(function(item){return item.scoreDiff});
+                            record.projectedResults["scoreDiff"]["homeScoreDiffWinAvg"] = calculateAverage(awayScoreDiff);
+                        }
+                        else{
+                            record.projectedResults.scoreDiff.homeScoreDiffWinAvg = 0;
+                        }
+                        if(homeSelLose.length > 0)
+                        {
+                            var awayPlayed = homeSelLose.filter(function(item){return item.scoreDiff > 0 });
+                            var awayScoreDiff = awayPlayed.map(function(item){return item.scoreDiff});
+                            record.projectedResults["scoreDiff"]["homeScoreDiffLoseAvg"] = calculateAverage(awayScoreDiff);
+                        }
+                        else{
+                            record.projectedResults.scoreDiff.homeScoreDiffLoseAvg = 0;
+                        }
+    
+                        record.projectedResults.scoreDiff.safestSpread = calculateSafeNumber(record.projectedResults.scoreDiff.awayScoreDiffWinAvg, record.projectedResults.scoreDiff.awayScoreDiffLoseAvg, record.projectedResults.scoreDiff.homeScoreDiffWinAvg, record.projectedResults.scoreDiff.homeScoreDiffLoseAvg);
+                        
+    
+                    });
+                    }
+                    catch{}
+
             try{
                 var bet365TeamCatalog = await load("bet365TeamCatalog", "BetsData");
                 var spreads = await load(betData, "BetsData");
@@ -640,6 +717,16 @@ const { Console } = require('console');
                 {
                     if(matches[0].handicap){
                         game.spread = Math.abs(parseFloat(matches[0].handicap.replace("+","").replace("-","")));
+                        if((matches && matches[0].team == team1) || (translatedValue && translatedValue[0].team == team1) )
+                            {
+                                game.awaySpread = parseFloat(matches[0].handicap);
+                                game.homeSpread = parseFloat(matches[0].handicap)*-1;
+                            }
+                            else{
+                                game.awaySpread = parseFloat(matches[0].handicap)*-1;
+                                game.homeSpread = parseFloat(matches[0].handicap);
+                            }
+                            
                     }
                     if(matches[0].overUnder){
                         game.overUnder = Math.abs(parseFloat(matches[0].overUnder.replace("O ","").replace("U ","")));
@@ -774,7 +861,49 @@ const { Console } = require('console');
 
         });
 
+        allMLRecords.forEach(game => {
+            var isFinalHomeWinner = game.projectedResults.isHomeWinner.isHomeWinner == game.projectedResults.isHomeWinner.isHomeReferenceWinner ? game.projectedResults.isHomeWinner.isHomeWinner : "no consistent";
+            var chances = game.projectedResults.isHomeWinner.chances;
+            var chancesProb = game.projectedResults.isHomeWinner.probability;
+            var referenceProb = game.projectedResults.isHomeWinner.isHomeReferenceProb;
+            var diffWin = 0;
+            var diffLose = 0;
+            if(isFinalHomeWinner == 0)
+            {
+                var diffWin = game.projectedResults.scoreDiff.awayScoreDiffWinAvg;
+                var diffLose = game.projectedResults.scoreDiff.homeScoreDiffLoseAvg;
 
+            }
+            else if(isFinalHomeWinner == 1)
+            {
+                var diffWin = game.projectedResults.scoreDiff.homeScoreDiffWinAvg;
+                var diffLose = game.projectedResults.scoreDiff.awayScoreDiffLoseAvg;
+            }
+            else{
+                if(game.projectedResults.isHomeWinner.isHomeReferenceWinner == 0)
+                {
+                    var diffWin = game.projectedResults.scoreDiff.awayScoreDiffWinAvg;
+                    var diffLose = game.projectedResults.scoreDiff.homeScoreDiffLoseAvg;
+
+                }
+                else{
+                    var diffWin = game.projectedResults.scoreDiff.homeScoreDiffWinAvg;
+                    var diffLose = game.projectedResults.scoreDiff.awayScoreDiffLoseAvg;
+                }
+            }
+            
+            game.expectedSpread = (game.projectedResults.scoreDiff.safestSpread + game.predictions.scoreDiff.averages.average + diffWin + diffLose)/4;
+            
+            if((game.projectedResults.isHomeWinner.isHomeReferenceWinner == 0 && isFinalHomeWinner == "no consistent") || isFinalHomeWinner == 0)
+            {
+                game.spreadAdv = game.expectedSpread - game.awaySpread;
+            }
+            else{
+                game.spreadAdv = game.expectedSpread - game.homeSpread;
+            }
+
+            var stopHere = "";
+        });
 
             await save(fileToEnrich, allMLRecords, function(){},"replace" ,"AnalysisData");
 
@@ -1160,7 +1289,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 7){
+                                                if(rat <= 8){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -1232,8 +1361,8 @@ const { Console } = require('console');
                                                         else{
                                                             gameResults = await load("formatedRecords","AnalysisData/" + (year.year_id));
                                                             var selectedGameResults = gameResults.filter(function(item){return item.team == home_name});
-                                                            var selectedGameResult = selectedGameResults[rat-1];
-                                                            selectedGameResult = typeof selectedGameResult == "undefined" || selectedGameResult == null ? selectedGameResults[rat-2] : selectedGameResult;
+                                                            var selectedGameResult = selectedGameResults[selectedGameResults.length-1];
+                                                            selectedGameResult = typeof selectedGameResult == "undefined" || selectedGameResult == null ? selectedGameResults[selectedGameResults.length-1] : selectedGameResult;
                                                         }
                                                     }
                                                     catch{
@@ -1258,8 +1387,8 @@ const { Console } = require('console');
                                                             var arr = [];
                                                             averageRecords = await load("averageRecords","AnalysisData/" + (year.year_id));
                                                             var selectedAverage = averageRecords.filter(function(item){return item.team == home_name});
-                                                            var selectedAvg = selectedAverage[rat-1];
-                                                            selectedAvg = typeof selectedAvg == "undefined" || selectedAvg == null ? selectedAverage[rat-2] : selectedAvg;
+                                                            var selectedAvg = selectedAverage[selectedAverage.length-1];
+                                                            selectedAvg = typeof selectedAvg == "undefined" || selectedAvg == null ? selectedAverage[selectedAverage.length-1] : selectedAvg;
                                                             if((rat-1) <=0 )
                                                             {
                                                                 if(selectedGameResult.offenseTotalYD != 0)
@@ -1292,8 +1421,8 @@ const { Console } = require('console');
                                                         else{
                                                             gameResults = await load("formatedRecords","AnalysisData/" + (year.year_id));
                                                             var opponentGameResults = gameResults.filter(function(item){return item.team == away_name});
-                                                            var opponentGameResult = opponentGameResults[rat-1];
-                                                            opponentGameResult = typeof opponentGameResult == "undefined" || opponentGameResult == null  ? opponentGameResults[rat-2] : opponentGameResult;
+                                                            var opponentGameResult = opponentGameResults[opponentGameResults.length-1];
+                                                            opponentGameResult = typeof opponentGameResult == "undefined" || opponentGameResult == null  ? opponentGameResults[opponentGameResults.length-1] : opponentGameResult;
                                                             
                                                         }
                                                     }
@@ -1326,8 +1455,8 @@ const { Console } = require('console');
                                                             {
                                                                 var stopHere = "";
                                                             }
-                                                            var opponentAvg = opponentAverage[rat-1];
-                                                            opponentAvg = typeof opponentAvg == "undefined" || opponentAvg == null ? opponentAverage[rat-2] : opponentAvg;
+                                                            var opponentAvg = opponentAverage[opponentAverage.length-1];
+                                                            opponentAvg = typeof opponentAvg == "undefined" || opponentAvg == null ? opponentAverage[opponentAverage.length-1] : opponentAvg;
                                                             if((rat-1) <=0 )
                                                                 {
                                                                     if(opponentGameResult.offenseTotalYD != 0)
@@ -2100,7 +2229,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && ((schedule.date_gameLink.indexOf("2024-10") >= 0) && (schedule.date_gameLink.indexOf("2024-10-1") < 0) && (schedule.date_gameLink.indexOf("2024-10-2") < 0) && (schedule.date_gameLink.indexOf("2024-10-3") < 0) && (schedule.date_gameLink.indexOf("2024-10-07") < 0) && (schedule.date_gameLink.indexOf("2024-10-08") < 0) && (schedule.date_gameLink.indexOf("2024-10-09") < 0))){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
+                                                        if(schedule.date_gameLink && ((schedule.date_gameLink.indexOf("2024-10") >= 0) && (schedule.date_gameLink.indexOf("2024-10-2") < 0) && (schedule.date_gameLink.indexOf("2024-10-3") < 0) &&((schedule.date_gameLink.indexOf("2024-10-07") >= 0) || (schedule.date_gameLink.indexOf("2024-10-08") >= 0) || (schedule.date_gameLink.indexOf("2024-10-09") >= 0) || (schedule.date_gameLink.indexOf("2024-10-10") >= 0) || (schedule.date_gameLink.indexOf("2024-10-11") >= 0) || (schedule.date_gameLink.indexOf("2024-10-12") >= 0)))){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
