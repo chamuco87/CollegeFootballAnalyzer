@@ -57,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            await enrichMLResults("2024NewMLResults", 2024, "Week8", 2023);
+            await enrichMLResults("2024NewMLResults", 2024, "Week10", 2023);
 
           } 
           catch(Ex){
@@ -1289,7 +1289,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 8){
+                                                if(rat <= 10){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -2229,7 +2229,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && ((schedule.date_gameLink.indexOf("2024-10") >= 0) && (schedule.date_gameLink.indexOf("2024-10-2") < 0) && (schedule.date_gameLink.indexOf("2024-10-3") < 0) &&((schedule.date_gameLink.indexOf("2024-10-07") >= 0) || (schedule.date_gameLink.indexOf("2024-10-08") >= 0) || (schedule.date_gameLink.indexOf("2024-10-09") >= 0) || (schedule.date_gameLink.indexOf("2024-10-10") >= 0) || (schedule.date_gameLink.indexOf("2024-10-11") >= 0) || (schedule.date_gameLink.indexOf("2024-10-12") >= 0)))){//} || schedule.date_gameLink.indexOf("2024-09-0") >= 0 ) && (schedule.date_gameLink.indexOf("2024-09-07") < 0 && schedule.date_gameLink.indexOf("2024-09-06") < 0 ) ){
+                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-10-20") >= 0  || schedule.date_gameLink.indexOf("2024-10-21") >= 0  || schedule.date_gameLink.indexOf("2024-10-22") >= 0 || schedule.date_gameLink.indexOf("2024-10-23") >= 0 || schedule.date_gameLink.indexOf("2024-10-24") >= 0  || schedule.date_gameLink.indexOf("2024-10-25") >= 0 || schedule.date_gameLink.indexOf("2024-10-26") >= 0|| schedule.date_gameLink.indexOf("2024-10-27") >= 0 || schedule.date_gameLink.indexOf("2024-10-28") >= 0) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
