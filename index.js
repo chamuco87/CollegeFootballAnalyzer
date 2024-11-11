@@ -20,13 +20,13 @@ const { Console } = require('console');
 
           try {
 
-            //await LogIn();
+            await LogIn();
             //await getTableData("/cfb/years/" ,"years", "BaseData");
             //await getConferencesPerYear();
             //await getConferencesPerYearDetails();
             //await getSchoolPerYearDetails();
             //await getSchedulePerYearDetails();
-            //await getGamesPerYearDetails();
+            await getGamesPerYearDetails();
 
             // var years = [2024];//[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
@@ -36,11 +36,11 @@ const { Console } = require('console');
             //     await generateAverages(yearTo);
             // }
 
-            //var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+            // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
-            //     const yearTo = years[index];
-            //     var toBeEvaluated = false;
-            //     await generateMLRecords(yearTo, toBeEvaluated);
+            //     // const yearTo = years[index];
+            //     // var toBeEvaluated = false;
+            //     // await generateMLRecords(yearTo, toBeEvaluated);
             // }
             // var MLData = [];
             // for (let index = 0; index < years.length; index++) {
@@ -57,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            await enrichMLResults("2024NewMLResults", 2024, "Week10", 2023);
+            //await enrichMLResults("2024NewMLResults", 2024, "Week11", 2023);
 
           } 
           catch(Ex){
@@ -136,7 +136,7 @@ const { Console } = require('console');
             const minMaxValues = {};
         
             for (let key in keyWeights) {
-                if (keyWeights.hasOwnProperty(key) && typeof targetObject[key] === 'number') {
+                if (targetObject && keyWeights.hasOwnProperty(key) && typeof targetObject[key] === 'number') {
                     let values = objectsArray.map(obj => obj[key]).filter(val => typeof val === 'number');
                     minMaxValues[key] = {
                         min: Math.min(...values),
@@ -151,6 +151,7 @@ const { Console } = require('console');
         
                 for (let key in keyWeights) {
                     if (
+                        targetObject &&
                         keyWeights.hasOwnProperty(key) &&
                         targetObject.hasOwnProperty(key) &&
                         currentObject.hasOwnProperty(key) &&
@@ -757,6 +758,17 @@ const { Console } = require('console');
                 }
             }
 
+
+            allMLRecords.forEach(record => {
+                var keyParts = record.key.split("@");
+    
+                var sel = yearResults.filter(function (item) { return (item.key.indexOf(keyParts[0]) >= 0 && item.key.indexOf(keyParts[1]) >= 0 && item.key.indexOf(keyParts[2]) >= 0) });
+                if (record.scoreDiff > 0) {
+                    record.isCorrect = record.projectedResults.isHomeWinner.isHomeWinner == record.isHomeWinner ? 1 : 0;
+                }
+                record.probAvg = ((record.projectedResults.isHomeWinner.probability/100) + record.predictions.isHomeWinner.RandomForest.probability + record.predictions.isHomeWinner.LogisticRegression.probability) / 3;
+            });
+
             await save("bet365TeamCatalog", bet365TeamCatalog, function(){}, "replace","BetsData")
         }
 
@@ -1289,7 +1301,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 10){
+                                                if(rat <= 11){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -2229,7 +2241,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-10-20") >= 0  || schedule.date_gameLink.indexOf("2024-10-21") >= 0  || schedule.date_gameLink.indexOf("2024-10-22") >= 0 || schedule.date_gameLink.indexOf("2024-10-23") >= 0 || schedule.date_gameLink.indexOf("2024-10-24") >= 0  || schedule.date_gameLink.indexOf("2024-10-25") >= 0 || schedule.date_gameLink.indexOf("2024-10-26") >= 0|| schedule.date_gameLink.indexOf("2024-10-27") >= 0 || schedule.date_gameLink.indexOf("2024-10-28") >= 0) ){
+                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-11-05") >= 0  || schedule.date_gameLink.indexOf("2024-11-06") >= 0  || schedule.date_gameLink.indexOf("2024-11-07") >= 0 || schedule.date_gameLink.indexOf("2024-11-08") >= 0 || schedule.date_gameLink.indexOf("2024-11-09") >= 0) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
