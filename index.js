@@ -20,13 +20,13 @@ const { Console } = require('console');
 
           try {
 
-            await LogIn();
+            //await LogIn();
             //await getTableData("/cfb/years/" ,"years", "BaseData");
             //await getConferencesPerYear();
             //await getConferencesPerYearDetails();
             //await getSchoolPerYearDetails();
             //await getSchedulePerYearDetails();
-            await getGamesPerYearDetails();
+            //await getGamesPerYearDetails();
 
             // var years = [2024];//[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
             // for (let index = 0; index < years.length; index++) {
@@ -57,7 +57,7 @@ const { Console } = require('console');
             //     await generateMLRecords(yearTo, toBeEvaluated);
             // }
             
-            //await enrichMLResults("2024NewMLResults", 2024, "Week11", 2023);
+            //await enrichMLResults("2024NewMLResults", 2024, "Week12", 2023);
 
           } 
           catch(Ex){
@@ -1301,7 +1301,7 @@ const { Console } = require('console');
                                         }
                                         else{
                                             for (let rat = 0; rat < schedules.length; rat++) {
-                                                if(rat <= 11){
+                                                if(rat <= 12){
                                                     var stopHere = "";
                                                 
                                                 const schedule = schedules[rat];
@@ -2241,7 +2241,7 @@ const { Console } = require('console');
                                                         // }
                                                     }
                                                     catch(Ex){
-                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-11-05") >= 0  || schedule.date_gameLink.indexOf("2024-11-06") >= 0  || schedule.date_gameLink.indexOf("2024-11-07") >= 0 || schedule.date_gameLink.indexOf("2024-11-08") >= 0 || schedule.date_gameLink.indexOf("2024-11-09") >= 0) ){
+                                                        if(schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-11-12") >= 0  || schedule.date_gameLink.indexOf("2024-11-13") >= 0  || schedule.date_gameLink.indexOf("2024-11-14") >= 0 || schedule.date_gameLink.indexOf("2024-11-15") >= 0 || schedule.date_gameLink.indexOf("2024-11-16") >= 0) ){
                                                             var isException = exceptions.filter(function(item){return item == schedule.date_gameLink });
                                                             if(!isProcessed && schedule.date_gameLink && isException.length == 0){
                                                                 processing = processing + await getTableData(schedule.date_gameLink , schedule_name, year.year_id+"/"+"Conferences"+"/"+school_name+"/Games");
