@@ -70,9 +70,11 @@ const { Console } = require('console');
         //     await generateMLRecords(yearTo, toBeEvaluated, "homeAway");
         // }
 
-        await enrichMLResults("2024NewMLResults", 2024, "Week14", 2023);
+        //await enrichMLResults("2024NewMLResults", 2024, "Week14", 2023);
 
         //await generateHTMLTable("2024NewMLResults");
+
+        await generateDetailsTable("2024MLDataToEvaluate");
 
     }
     catch (Ex) {
@@ -82,6 +84,112 @@ const { Console } = require('console');
     } finally {
         //await driver.quit();
         //await example();
+    }
+
+    async function generateDetailsTable(file){
+
+        var originalArray = await load(file, "AnalysisData");
+        var last3Array = await load(file+"3", "AnalysisData");
+        var homeAwayArray = await load(file+"HomeAway", "AnalysisData");
+        
+        originalArray.forEach(function(item){
+            item.key = item.key.replace("@"+item.date,"");
+            item.file = "ALL";
+        });
+
+        last3Array.forEach(function(item){
+            item.key = item.key.replace("@"+item.date,"");
+            item.file = "L3";
+        });
+        
+        homeAwayArray.forEach(function(item){
+            item.key = item.key.replace("@"+item.date,"");
+            item.file = "HA";
+        });
+
+        var allData = originalArray.concat(last3Array);
+
+        allData = allData.concat(homeAwayArray);
+
+        const tableData = await buildDetailedTableData(allData);
+        await generateDetailedHTMLTable(file, tableData);
+    }
+
+    async function buildDetailedTableData(dataArray) {
+        const rows = [];
+
+        dataArray.forEach(item => {
+            const { key, date, file } = item; // Shared properties for all rows
+            const rowTemplates = [
+                { type: "away", category: "Offense", prefix: "awayAvgOffense", compare: "offToDef" },
+                { type: "away", category: "Defense", prefix: "awayAvgDef", compare: "defToOff" },
+                { type: "home", category: "Offense", prefix: "homeAvgOffense", compare: "defToOff" },
+                { type: "home", category: "Defense", prefix: "homeAvgDef", compare: "offToDef" },
+            ];
+    
+            rowTemplates.forEach(template => {
+                const row = {
+                    file,
+                    key,
+                    date,
+                    type: template.type,
+                    category: template.category,
+                    compare: template.compare, // Add the new "compare" column
+                };
+                const prefixLength = template.prefix.length;
+    
+                // Extract properties that match the prefix
+                Object.keys(item).forEach(prop => {
+                    if (prop.startsWith(template.prefix)) {
+                        let newPropName = prop.slice(prefixLength); // Remove prefix
+                        if (template.category === "Defense") {
+                            // Remove "Allowed" for defense rows
+                            newPropName = newPropName.replace("Allowed", "");
+                        }
+                        row[newPropName] = item[prop];
+                    }
+                });
+    
+                rows.push(row);
+            });
+        });
+    
+        return rows;
+    }
+
+    async function generateDetailedHTMLTable(file, rows) {
+        if (rows.length === 0) {
+            return "<p>No data available</p>";
+        }
+    
+        // Create a unique list of columns (keys) from all rows
+        const columns = Array.from(
+            rows.reduce((colSet, row) => {
+                Object.keys(row).forEach(key => colSet.add(key));
+                return colSet;
+            }, new Set())
+        );
+    
+        // Build table header
+        let tableHTML = "<table><thead><tr>";
+        columns.forEach(column => {
+            tableHTML += `<th>${column}</th>`;
+        });
+        tableHTML += "</tr></thead><tbody>";
+    
+        // Build table rows
+        rows.forEach(row => {
+            tableHTML += "<tr>";
+            columns.forEach(column => {
+                tableHTML += `<td>${row[column] !== undefined ? row[column] : ""}</td>`;
+            });
+            tableHTML += "</tr>";
+        });
+    
+        tableHTML += "</tbody></table>";
+        var table =  tableHTML;
+
+        await save(file + "HTML", table, function(){}, "replace", "HTML");
     }
 
     function calculateSafeNumber(scoreAwayWin, scoreAwayLose, scoreHomeWin, scoreHomeLose) {
