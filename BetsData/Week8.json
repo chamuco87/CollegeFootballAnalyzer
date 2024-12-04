@@ -1,0 +1,828 @@
+[
+    {
+        "team": "Troy",
+        "time": "17:30",
+        "handicap": "+11.0",
+        "overUnder": "O 57.0",
+        "mlOdds": "4.50"
+    },
+    {
+        "team": "South Alabama",
+        "time": "17:30",
+        "handicap": "-11.0",
+        "overUnder": "U 57.0",
+        "mlOdds": "1.22"
+    },
+    {
+        "team": "Kennesaw State",
+        "time": "17:30",
+        "handicap": "+10.0",
+        "overUnder": "O 50.5",
+        "mlOdds": "3.80"
+    },
+    {
+        "team": "Middle Tennessee",
+        "time": "18:00",
+        "handicap": "-10.0",
+        "overUnder": "U 50.5",
+        "mlOdds": "1.27"
+    },
+    {
+        "team": "Louisiana Tech",
+        "time": "18:00",
+        "handicap": "-11.0",
+        "overUnder": "O 48.0",
+        "mlOdds": "1.23"
+    },
+    {
+        "team": "New Mexico State",
+        "time": "19:00",
+        "handicap": "+11.0",
+        "overUnder": "U 48.0",
+        "mlOdds": "4.25"
+    },
+    {
+        "team": "Western Kentucky",
+        "time": "19:00",
+        "handicap": "+3.0",
+        "overUnder": "O 55.5",
+        "mlOdds": "2.25"
+    },
+    {
+        "team": "Sam Houston State Bearkats",
+        "time": "17:00",
+        "handicap": "-3.0",
+        "overUnder": "U 55.5",
+        "mlOdds": "1.66"
+    },
+    {
+        "team": "Florida Intl",
+        "time": "17:00",
+        "handicap": "-5.0",
+        "overUnder": "O 49.0",
+        "mlOdds": "1.45"
+    },
+    {
+        "team": "UTEP",
+        "time": "19:00",
+        "handicap": "+5.0",
+        "overUnder": "U 49.0",
+        "mlOdds": "2.80"
+    },
+    {
+        "team": "Georgia State",
+        "time": "19:00",
+        "handicap": "+9.0",
+        "overUnder": "O 53.5",
+        "mlOdds": "3.75"
+    },
+    {
+        "team": "Marshall",
+        "time": "17:00",
+        "handicap": "-9.0",
+        "overUnder": "U 53.5",
+        "mlOdds": "1.28"
+    },
+    {
+        "team": "Boston College",
+        "time": "17:00",
+        "handicap": "+7.0",
+        "overUnder": "O 49.5",
+        "mlOdds": "3.20"
+    },
+    {
+        "team": "Virginia Tech",
+        "time": "17:30",
+        "handicap": "-7.0",
+        "overUnder": "U 49.5",
+        "mlOdds": "1.37"
+    },
+    {
+        "team": "Florida State",
+        "time": "17:30",
+        "handicap": "+3.0",
+        "overUnder": "O 42.5",
+        "mlOdds": "2.40"
+    },
+    {
+        "team": "Duke",
+        "time": "17:00",
+        "handicap": "-3.0",
+        "overUnder": "U 42.5",
+        "mlOdds": "1.60"
+    },
+    {
+        "team": "Oregon",
+        "time": "17:00",
+        "handicap": "-27.5",
+        "overUnder": "O 58.5",
+        "mlOdds": ""
+    },
+    {
+        "team": "Purdue",
+        "time": "18:00",
+        "handicap": "+27.5",
+        "overUnder": "U 58.5",
+        "mlOdds": ""
+    },
+    {
+        "team": "Oklahoma State",
+        "time": "18:00",
+        "handicap": "+8.5",
+        "overUnder": "O 55.5",
+        "mlOdds": "3.70"
+    },
+    {
+        "team": "BYU",
+        "time": "20:15",
+        "handicap": "-8.5",
+        "overUnder": "U 55.5",
+        "mlOdds": "1.29"
+    },
+    {
+        "team": "Fresno State",
+        "time": "20:15",
+        "handicap": "-3.0",
+        "overUnder": "O 51.5",
+        "mlOdds": "1.64"
+    },
+    {
+        "team": "Nevada",
+        "time": "20:30",
+        "handicap": "+3.0",
+        "overUnder": "U 51.5",
+        "mlOdds": "2.30"
+    },
+    {
+        "team": "Arizona State",
+        "time": "20:30",
+        "handicap": "+3.0",
+        "overUnder": "O 53.5",
+        "mlOdds": "2.25"
+    },
+    {
+        "team": "Cincinnati",
+        "time": "10:00",
+        "handicap": "-3.0",
+        "overUnder": "U 53.5",
+        "mlOdds": "1.66"
+    },
+    {
+        "team": "Auburn",
+        "time": "10:00",
+        "handicap": "+6.5",
+        "overUnder": "O 51.5",
+        "mlOdds": "3.05"
+    },
+    {
+        "team": "Missouri",
+        "time": "10:00",
+        "handicap": "-6.5",
+        "overUnder": "U 51.5",
+        "mlOdds": "1.40"
+    },
+    {
+        "team": "East Carolina",
+        "time": "10:00",
+        "handicap": "+17.0",
+        "overUnder": "O 51.5",
+        "mlOdds": "6.75"
+    },
+    {
+        "team": "Army",
+        "time": "10:00",
+        "handicap": "-17.0",
+        "overUnder": "U 51.5",
+        "mlOdds": "1.11"
+    },
+    {
+        "team": "Miami Florida",
+        "time": "10:00",
+        "handicap": "-4.0",
+        "overUnder": "O 61.5",
+        "mlOdds": "1.58"
+    },
+    {
+        "team": "Louisville",
+        "time": "10:00",
+        "handicap": "+4.0",
+        "overUnder": "U 61.5",
+        "mlOdds": "2.45"
+    },
+    {
+        "team": "Nebraska",
+        "time": "10:00",
+        "handicap": "+6.0",
+        "overUnder": "O 51.0",
+        "mlOdds": "2.75"
+    },
+    {
+        "team": "Indiana",
+        "time": "10:00",
+        "handicap": "-6.0",
+        "overUnder": "U 51.0",
+        "mlOdds": "1.47"
+    },
+    {
+        "team": "North Texas",
+        "time": "10:00",
+        "handicap": "+10.5",
+        "overUnder": "O 66.5",
+        "mlOdds": "4.20"
+    },
+    {
+        "team": "Memphis",
+        "time": "10:00",
+        "handicap": "-10.5",
+        "overUnder": "U 66.5",
+        "mlOdds": "1.25"
+    },
+    {
+        "team": "South Carolina",
+        "time": "10:00",
+        "handicap": "+3.0",
+        "overUnder": "O 40.5",
+        "mlOdds": "2.25"
+    },
+    {
+        "team": "Oklahoma",
+        "time": "10:00",
+        "handicap": "-3.0",
+        "overUnder": "U 40.5",
+        "mlOdds": "1.66"
+    },
+    {
+        "team": "UCLA",
+        "time": "10:00",
+        "handicap": "+6.5",
+        "overUnder": "O 40.5",
+        "mlOdds": "3.10"
+    },
+    {
+        "team": "Rutgers",
+        "time": "10:00",
+        "handicap": "-6.5",
+        "overUnder": "U 40.5",
+        "mlOdds": "1.38"
+    },
+    {
+        "team": "UL Lafayette",
+        "time": "10:00",
+        "handicap": "-3.5",
+        "overUnder": "O 56.5",
+        "mlOdds": "1.52"
+    },
+    {
+        "team": "Coastal Carolina",
+        "time": "10:00",
+        "handicap": "+3.5",
+        "overUnder": "U 56.5",
+        "mlOdds": "2.60"
+    },
+    {
+        "team": "Virginia",
+        "time": "10:00",
+        "handicap": "+21.0",
+        "overUnder": "O 57.5",
+        "mlOdds": "11.00"
+    },
+    {
+        "team": "Clemson",
+        "time": "10:00",
+        "handicap": "-21.0",
+        "overUnder": "U 57.5",
+        "mlOdds": "1.05"
+    },
+    {
+        "team": "Wake Forest",
+        "time": "10:00",
+        "handicap": "+2.0",
+        "overUnder": "O 58.0",
+        "mlOdds": "2.10"
+    },
+    {
+        "team": "Connecticut",
+        "time": "10:00",
+        "handicap": "-2.0",
+        "overUnder": "U 58.0",
+        "mlOdds": "1.76"
+    },
+    {
+        "team": "Wisconsin",
+        "time": "10:00",
+        "handicap": "-7.0",
+        "overUnder": "O 41.5",
+        "mlOdds": "1.38"
+    },
+    {
+        "team": "Northwestern",
+        "time": "10:00",
+        "handicap": "+7.0",
+        "overUnder": "U 41.5",
+        "mlOdds": "3.10"
+    },
+    {
+        "team": "UAB",
+        "time": "10:00",
+        "handicap": "+13.5",
+        "overUnder": "O 57.5",
+        "mlOdds": "4.50"
+    },
+    {
+        "team": "South Florida",
+        "time": "10:30",
+        "handicap": "-13.5",
+        "overUnder": "U 57.5",
+        "mlOdds": "1.22"
+    },
+    {
+        "team": "Central Michigan",
+        "time": "10:30",
+        "handicap": "+2.0",
+        "overUnder": "O 54.5",
+        "mlOdds": "2.05"
+    },
+    {
+        "team": "Eastern Michigan",
+        "time": "12:00",
+        "handicap": "-2.0",
+        "overUnder": "U 54.5",
+        "mlOdds": "1.80"
+    },
+    {
+        "team": "Tulsa",
+        "time": "12:00",
+        "handicap": "+2.5",
+        "overUnder": "O 52.5",
+        "mlOdds": "2.20"
+    },
+    {
+        "team": "Temple",
+        "time": "12:00",
+        "handicap": "-2.5",
+        "overUnder": "U 52.5",
+        "mlOdds": "1.71"
+    },
+    {
+        "team": "Alabama",
+        "time": "12:00",
+        "handicap": "-2.5",
+        "overUnder": "O 56.5",
+        "mlOdds": "1.71"
+    },
+    {
+        "team": "Tennessee",
+        "time": "13:30",
+        "handicap": "+2.5",
+        "overUnder": "U 56.5",
+        "mlOdds": "2.20"
+    },
+    {
+        "team": "Charlotte",
+        "time": "13:30",
+        "handicap": "+17.0",
+        "overUnder": "O 56.5",
+        "mlOdds": "7.25"
+    },
+    {
+        "team": "Navy",
+        "time": "13:30",
+        "handicap": "-17.0",
+        "overUnder": "U 56.5",
+        "mlOdds": "1.10"
+    },
+    {
+        "team": "Florida Atlantic",
+        "time": "13:30",
+        "handicap": "+4.0",
+        "overUnder": "O 55.5",
+        "mlOdds": "2.65"
+    },
+    {
+        "team": "Texas San Antonio",
+        "time": "13:30",
+        "handicap": "-4.0",
+        "overUnder": "U 55.5",
+        "mlOdds": "1.50"
+    },
+    {
+        "team": "Hawaii",
+        "time": "13:30",
+        "handicap": "+19.0",
+        "overUnder": "O 55.5",
+        "mlOdds": ""
+    },
+    {
+        "team": "Washington State",
+        "time": "13:30",
+        "handicap": "-19.0",
+        "overUnder": "U 55.5",
+        "mlOdds": ""
+    },
+    {
+        "team": "Houston",
+        "time": "13:30",
+        "handicap": "+6.5",
+        "overUnder": "O 46.5",
+        "mlOdds": "3.05"
+    },
+    {
+        "team": "Kansas",
+        "time": "13:30",
+        "handicap": "-6.5",
+        "overUnder": "U 46.5",
+        "mlOdds": "1.40"
+    },
+    {
+        "team": "Kent State",
+        "time": "13:30",
+        "handicap": "+21.0",
+        "overUnder": "O 56.5",
+        "mlOdds": "11.00"
+    },
+    {
+        "team": "Bowling Green",
+        "time": "13:30",
+        "handicap": "-21.0",
+        "overUnder": "U 56.5",
+        "mlOdds": "1.05"
+    },
+    {
+        "team": "Michigan",
+        "time": "13:30",
+        "handicap": "-1.0",
+        "overUnder": "O 42.5",
+        "mlOdds": "1.86"
+    },
+    {
+        "team": "Illinois",
+        "time": "13:30",
+        "handicap": "+1.0",
+        "overUnder": "U 42.5",
+        "mlOdds": "1.95"
+    },
+    {
+        "team": "NC State",
+        "time": "13:30",
+        "handicap": "+10.0",
+        "overUnder": "O 46.5",
+        "mlOdds": "4.20"
+    },
+    {
+        "team": "California",
+        "time": "13:30",
+        "handicap": "-10.0",
+        "overUnder": "U 46.5",
+        "mlOdds": "1.25"
+    },
+    {
+        "team": "Notre Dame",
+        "time": "13:30",
+        "handicap": "-8.5",
+        "overUnder": "O 50.0",
+        "mlOdds": "1.32"
+    },
+    {
+        "team": "Georgia Tech",
+        "time": "13:30",
+        "handicap": "+8.5",
+        "overUnder": "U 50.0",
+        "mlOdds": "3.45"
+    },
+    {
+        "team": "Ohio",
+        "time": "13:30",
+        "handicap": "+4.0",
+        "overUnder": "O 43.0",
+        "mlOdds": "2.45"
+    },
+    {
+        "team": "Miami Ohio",
+        "time": "13:30",
+        "handicap": "-4.0",
+        "overUnder": "U 43.0",
+        "mlOdds": "1.58"
+    },
+    {
+        "team": "Rice",
+        "time": "13:30",
+        "handicap": "+22.0",
+        "overUnder": "O 53.0",
+        "mlOdds": ""
+    },
+    {
+        "team": "Tulane",
+        "time": "13:30",
+        "handicap": "-22.0",
+        "overUnder": "U 53.0",
+        "mlOdds": ""
+    },
+    {
+        "team": "Texas State",
+        "time": "13:30",
+        "handicap": "-10.0",
+        "overUnder": "O 62.5",
+        "mlOdds": "1.27"
+    },
+    {
+        "team": "Old Dominion",
+        "time": "13:30",
+        "handicap": "+10.0",
+        "overUnder": "U 62.5",
+        "mlOdds": "3.90"
+    },
+    {
+        "team": "Toledo",
+        "time": "13:30",
+        "handicap": "+2.5",
+        "overUnder": "O 45.5",
+        "mlOdds": "2.15"
+    },
+    {
+        "team": "Northern Illinois",
+        "time": "13:30",
+        "handicap": "-2.5",
+        "overUnder": "U 45.5",
+        "mlOdds": "1.74"
+    },
+    {
+        "team": "Western Michigan",
+        "time": "13:30",
+        "handicap": "+1.0",
+        "overUnder": "O 49.5",
+        "mlOdds": "2.00"
+    },
+    {
+        "team": "Buffalo",
+        "time": "13:30",
+        "handicap": "-1.0",
+        "overUnder": "U 49.5",
+        "mlOdds": "1.83"
+    },
+    {
+        "team": "Baylor",
+        "time": "13:30",
+        "handicap": "+6.5",
+        "overUnder": "O 57.0",
+        "mlOdds": "3.10"
+    },
+    {
+        "team": "Texas Tech",
+        "time": "14:00",
+        "handicap": "-6.5",
+        "overUnder": "U 57.0",
+        "mlOdds": "1.38"
+    },
+    {
+        "team": "Colorado",
+        "time": "14:00",
+        "handicap": "+3.5",
+        "overUnder": "O 55.5",
+        "mlOdds": "2.45"
+    },
+    {
+        "team": "Arizona",
+        "time": "14:00",
+        "handicap": "-3.5",
+        "overUnder": "U 55.5",
+        "mlOdds": "1.58"
+    },
+    {
+        "team": "James Madison",
+        "time": "14:00",
+        "handicap": "-10.0",
+        "overUnder": "O 59.5",
+        "mlOdds": "1.25"
+    },
+    {
+        "team": "Georgia Southern",
+        "time": "14:00",
+        "handicap": "+10.0",
+        "overUnder": "U 59.5",
+        "mlOdds": "4.20"
+    },
+    {
+        "team": "New Mexico",
+        "time": "14:00",
+        "handicap": "-2.0",
+        "overUnder": "O 78.5",
+        "mlOdds": "1.80"
+    },
+    {
+        "team": "Utah State",
+        "time": "14:00",
+        "handicap": "+2.0",
+        "overUnder": "U 78.5",
+        "mlOdds": "2.05"
+    },
+    {
+        "team": "USC",
+        "time": "14:00",
+        "handicap": "-7.5",
+        "overUnder": "O 56.5",
+        "mlOdds": "1.38"
+    },
+    {
+        "team": "Maryland",
+        "time": "14:00",
+        "handicap": "+7.5",
+        "overUnder": "U 56.5",
+        "mlOdds": "3.10"
+    },
+    {
+        "team": "Wyoming",
+        "time": "14:00",
+        "handicap": "+11.0",
+        "overUnder": "O 50.0",
+        "mlOdds": "4.50"
+    },
+    {
+        "team": "San Jose State",
+        "time": "14:00",
+        "handicap": "-11.0",
+        "overUnder": "U 50.0",
+        "mlOdds": "1.22"
+    },
+    {
+        "team": "Texas A&M",
+        "time": "14:00",
+        "handicap": "-14.5",
+        "overUnder": "O 56.0",
+        "mlOdds": "1.15"
+    },
+    {
+        "team": "Mississippi State",
+        "time": "14:15",
+        "handicap": "+14.5",
+        "overUnder": "U 56.0",
+        "mlOdds": "5.75"
+    },
+    {
+        "team": "Arkansas State",
+        "time": "14:15",
+        "handicap": "-6.5",
+        "overUnder": "O 53.5",
+        "mlOdds": "1.40"
+    },
+    {
+        "team": "Southern Miss",
+        "time": "17:00",
+        "handicap": "+6.5",
+        "overUnder": "U 53.5",
+        "mlOdds": "3.00"
+    },
+    {
+        "team": "Ball State",
+        "time": "17:00",
+        "handicap": "+26.5",
+        "overUnder": "O 58.5",
+        "mlOdds": ""
+    },
+    {
+        "team": "Vanderbilt",
+        "time": "17:00",
+        "handicap": "-26.5",
+        "overUnder": "U 58.5",
+        "mlOdds": ""
+    },
+    {
+        "team": "LSU",
+        "time": "17:00",
+        "handicap": "-3.0",
+        "overUnder": "O 57.0",
+        "mlOdds": "1.74"
+    },
+    {
+        "team": "Arkansas",
+        "time": "17:00",
+        "handicap": "+3.0",
+        "overUnder": "U 57.0",
+        "mlOdds": "2.15"
+    },
+    {
+        "team": "Central Florida",
+        "time": "17:00",
+        "handicap": "+13.0",
+        "overUnder": "O 48.5",
+        "mlOdds": "4.75"
+    },
+    {
+        "team": "Iowa State",
+        "time": "17:30",
+        "handicap": "-13.0",
+        "overUnder": "U 48.5",
+        "mlOdds": "1.20"
+    },
+    {
+        "team": "Georgia",
+        "time": "17:30",
+        "handicap": "+3.5",
+        "overUnder": "O 56.5",
+        "mlOdds": "2.45"
+    },
+    {
+        "team": "Texas",
+        "time": "17:30",
+        "handicap": "-3.5",
+        "overUnder": "U 56.5",
+        "mlOdds": "1.58"
+    },
+    {
+        "team": "Iowa",
+        "time": "17:30",
+        "handicap": "-6.0",
+        "overUnder": "O 41.5",
+        "mlOdds": "1.40"
+    },
+    {
+        "team": "Michigan State",
+        "time": "17:30",
+        "handicap": "+6.0",
+        "overUnder": "U 41.5",
+        "mlOdds": "3.00"
+    },
+    {
+        "team": "Kansas State",
+        "time": "17:30",
+        "handicap": "-3.0",
+        "overUnder": "O 54.5",
+        "mlOdds": "1.60"
+    },
+    {
+        "team": "West Virginia",
+        "time": "17:30",
+        "handicap": "+3.0",
+        "overUnder": "U 54.5",
+        "mlOdds": "2.40"
+    },
+    {
+        "team": "Kentucky",
+        "time": "17:30",
+        "handicap": "+2.0",
+        "overUnder": "O 42.5",
+        "mlOdds": "2.10"
+    },
+    {
+        "team": "Florida",
+        "time": "17:45",
+        "handicap": "-2.0",
+        "overUnder": "U 42.5",
+        "mlOdds": "1.76"
+    },
+    {
+        "team": "Colorado State",
+        "time": "17:45",
+        "handicap": "-7.5",
+        "overUnder": "O 47.0",
+        "mlOdds": "1.35"
+    },
+    {
+        "team": "Air Force",
+        "time": "18:00",
+        "handicap": "+7.5",
+        "overUnder": "U 47.0",
+        "mlOdds": "3.30"
+    },
+    {
+        "team": "SMU",
+        "time": "18:00",
+        "handicap": "-14.5",
+        "overUnder": "O 55.5",
+        "mlOdds": "1.15"
+    },
+    {
+        "team": "Stanford",
+        "time": "18:00",
+        "handicap": "+14.5",
+        "overUnder": "U 55.5",
+        "mlOdds": "5.75"
+    },
+    {
+        "team": "UNLV",
+        "time": "18:00",
+        "handicap": "-6.0",
+        "overUnder": "O 61.0",
+        "mlOdds": "1.44"
+    },
+    {
+        "team": "Oregon State",
+        "time": "20:00",
+        "handicap": "+6.0",
+        "overUnder": "U 61.0",
+        "mlOdds": "2.85"
+    },
+    {
+        "team": "TCU",
+        "time": "20:00",
+        "handicap": "+6.5",
+        "overUnder": "O 51.5",
+        "mlOdds": "3.10"
+    },
+    {
+        "team": "Utah",
+        "time": "20:30",
+        "handicap": "-6.5",
+        "overUnder": "U 51.5",
+        "mlOdds": "1.38"
+    }
+]
