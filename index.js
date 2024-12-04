@@ -36,14 +36,14 @@ const { Console } = require('console');
         //     await generateAverages(yearTo);
         // }
 
-        // var years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
-        // for (let index = 0; index < years.length; index++) {
-        //     const yearTo = years[index];
-        //     var toBeEvaluated = false;
-        //     await generateMLRecords(yearTo, toBeEvaluated, "averageRecords");
-        //     await generateMLRecords(yearTo, toBeEvaluated, "averageRecords3");
-        //     await generateMLRecords(yearTo, toBeEvaluated, "homeAway");
-        // }
+        // var years = [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005];
+        // // for (let index = 0; index < years.length; index++) {
+        // //     const yearTo = years[index];
+        // //     var toBeEvaluated = false;
+        // //     await generateMLRecords(yearTo, toBeEvaluated, "averageRecords");
+        // //     await generateMLRecords(yearTo, toBeEvaluated, "averageRecords3");
+        // //     await generateMLRecords(yearTo, toBeEvaluated, "homeAway");
+        // // }
         // var MLData = [];
         // var MLData3 = [];
         // var MLDataHomeAway = [];
@@ -61,20 +61,20 @@ const { Console } = require('console');
         //     await save("MLDataHomeAway",MLDataHomeAway, function(){}, "replace", "AnalysisData");
         // }
 
-        // var years = [2024];
-        // for (let index = 0; index < years.length; index++) {
-        //     const yearTo = years[index];
-        //     var toBeEvaluated = true;
-        //     await generateMLRecords(yearTo, toBeEvaluated, "averageRecords");
-        //     await generateMLRecords(yearTo, toBeEvaluated, "averageRecords3");
-        //     await generateMLRecords(yearTo, toBeEvaluated, "homeAway");
-        // }
+        var years = [2024];
+        for (let index = 0; index < years.length; index++) {
+            const yearTo = years[index];
+            var toBeEvaluated = true;
+            await generateMLRecords(yearTo, toBeEvaluated, "averageRecords");
+            await generateMLRecords(yearTo, toBeEvaluated, "averageRecords3");
+            await generateMLRecords(yearTo, toBeEvaluated, "homeAway");
+        }
 
-        //await enrichMLResults("2024NewMLResults", 2024, "Week14", 2023);
+        // await enrichMLResults("2024NewMLResults", 2024, "Playoffs1", 2023);
 
-        //await generateHTMLTable("2024NewMLResults");
+        // await generateHTMLTable("2024NewMLResults");
 
-        await generateDetailsTable("2024MLDataToEvaluate");
+        // await generateDetailsTable("2024MLDataToEvaluate");
 
     }
     catch (Ex) {
@@ -1034,15 +1034,21 @@ const { Console } = require('console');
         }
 
 
-        // var referenceData = await load(yearToReference + "NewMLResults", "AnalysisData");
-        // allMLRecords.forEach(game => {
-        //     if (game.file != "Summary") {
-        //     var referenceHomeWinner = CalculateReferenceHomeWinner(game.predictions.isHomeWinner, referenceData);
-        //     game.projectedResults.isHomeWinner.isHomeReferenceWinner = referenceHomeWinner.mostProbHomeWinner;
-        //     game.projectedResults.isHomeWinner.isHomeReferenceProb = referenceHomeWinner.mostProbHomeWinner == 0 ? referenceHomeWinner.awayWinProb : referenceHomeWinner.homeWinProb;
-        //     var stopHere = "";
-        //     }
-        // });
+        try{
+            var referenceData = await load(yearToReference + "NewMLResults", "AnalysisData");
+            allMLRecords.forEach(game => {
+                if (game.file != "Summary") {
+                var referenceHomeWinner = CalculateReferenceHomeWinner(game.predictions.isHomeWinner, referenceData);
+                game.projectedResults.isHomeWinner.isHomeReferenceWinner = referenceHomeWinner.mostProbHomeWinner;
+                game.projectedResults.isHomeWinner.isHomeReferenceProb = referenceHomeWinner.mostProbHomeWinner == 0 ? referenceHomeWinner.awayWinProb : referenceHomeWinner.homeWinProb;
+                var stopHere = "";
+                }
+            });
+        }
+        catch
+        {
+
+        }
 
         allMLRecords.forEach(game => {
             if (game.file != "Summary") {
@@ -1592,9 +1598,10 @@ const { Console } = require('console');
                                     var stopHere = "";
                                 }
 
-                                if (schedules.length > 0 && year.year_id != 2024) {
+                                if (schedules.length > 0  && (year.year_id != 2024 || (toBeEvaluated == false && year.year_id == 2024) )) {
                                     for (let rat = (schedules.length - 1); rat >= 0; rat--) {
                                         const schedule = schedules[rat];
+                                        if(year.year_id != 2024|| (schedule.game_result !== '' && year.year_id == 2024)){
                                         var schedule_name = schedule.date_game.replace(" ", "_").replace(" ", "_").replace(",", "");
                                         var gameRecords = [];
                                         var gameResults = [];
@@ -1797,14 +1804,15 @@ const { Console } = require('console');
                                             var stopHere = "";
                                         }
 
-                                    }
+                                    }}
                                 }
                                 else {
                                     for (let rat = 0; rat < schedules.length; rat++) {
-                                        if (rat <= 14) {
+                                        if (rat <= 15) {
                                             var stopHere = "";
 
                                             const schedule = schedules[rat];
+                                            //if(schedule.points == '' && schedule.date_game.indexOf('Dec')>=0){
                                             var homePossibleTeam = extractTextBetween(schedule.date_gameLink);
                                             var opponentName = schedule.opp_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_", "");
                                             school_name = school_name.replace(/\s+/g, '').replace(/\(\d{1,2}\)/, '').replace("_", "");
@@ -2137,6 +2145,7 @@ const { Console } = require('console');
                                                 //throw Ex;
                                                 var stopHere = "";
                                             }
+                                        //}
                                         }
                                     }
 
@@ -2253,11 +2262,11 @@ const { Console } = require('console');
 
     function calculateAverages3(data) {
         let result = [];
-
+    
         for (let i = 0; i < data.length; i++) {
             let current = data[i];
             let newObject = {};
-
+    
             if (i === 0) {
                 // For the first object, set all numeric values to 0
                 for (let key in current) {
@@ -2268,28 +2277,28 @@ const { Console } = require('console');
                     }
                 }
             } else {
-                // For subsequent objects, calculate the averages based on the last 3 objects (or fewer if not enough)
+                // For subsequent objects, calculate the averages based on the last 3 objects (including the current one)
                 for (let key in current) {
                     if (typeof current[key] === 'number') {
                         let sum = 0;
                         let count = 0;
-
-                        // Only look back up to the last 3 objects
-                        for (let j = Math.max(0, i - 3); j < i; j++) {
+    
+                        // Look back up to the last 3 objects (including the current one)
+                        for (let j = Math.max(0, i - 2); j <= i; j++) {
                             sum += data[j][key];
                             count++;
                         }
-
-                        newObject[key] = Math.round(sum / count);
+    
+                        newObject[key] = count > 0 ? Math.round(sum / count) : 0;
                     } else {
                         newObject[key] = current[key];
                     }
                 }
             }
-
+    
             result.push(newObject);
         }
-
+    
         return result;
     }
 
@@ -2502,11 +2511,13 @@ const { Console } = require('console');
                                             team_stats = await load(schedule_name + "_team_stats", year.year_id + "/" + "Conferences" + "/" + school_name + "/Games");
 
                                             if (results && team_stats.length > 0) {
+                                                //await convertResults(results, schedule_name, year.year_id, school_name);
                                                 await addStatRecord(results, team_stats, schedule_name, year.year_id);
                                             }
                                         }
                                         catch (Ex) {
-
+                                            //console.log(Ex);
+                                            var stopHere = "";
                                         }
 
                                     }
@@ -2524,6 +2535,14 @@ const { Console } = require('console');
         }
     }
 
+    async function convertResults(results, schedule_name, year_id, school_name){
+        var homeRes = results.home;
+        var awayRes = results.away;
+        results.home = awayRes;
+        results.away = homeRes;
+
+        await save(schedule_name + "_results", results, function(){},"replace", year_id + "/" + "Conferences" + "/" + school_name + "/Games");
+    }
 
     async function addStatRecord(results, team_stats, date, year) {
         var stopHere = "";
@@ -2615,7 +2634,7 @@ const { Console } = require('console');
                     //const tableId = tables[ay];
                     let table = tables[ay];
                     let tableId = await table.getAttribute('id');
-                    if (tableId && tableId == "team_stats") {
+                    if (tableId && (tableId == "team_stats" || tableId == "schedule")) {
                         await driver.executeScript(await JSgetTableDetails(tableId)).then(function (return_value) {
                             console.log(return_value);
                             data = JSON.parse(return_value);
@@ -2824,6 +2843,8 @@ const { Console } = require('console');
                                 var isProcessed = false;
                                 try {
                                     isProcessed = await load(school_name + "_schedule", year.year_id + "/" + "Conferences" + "/" + school_name) ? true : false;
+                                    isProcessed = false;
+                                    throw new Error("Refresh");
                                 }
                                 catch (Ex) {
                                     if (school.school_nameLink) {
@@ -2831,9 +2852,9 @@ const { Console } = require('console');
                                         var isException = exceptions.filter(function (item) { return item == scheduleUrl });
                                         if (!isProcessed && school.school_nameLink && isException.length == 0) {
                                             processing = processing + await getTableData(scheduleUrl, school_name, year.year_id + "/" + "Conferences" + "/" + school_name);
-                                            if (processing == 1) {
-                                                throw new Error("Restart");
-                                            }
+                                            // if (processing == 1) {
+                                            //     throw new Error("Restart");
+                                            // }
                                         }
                                     }
                                 }
@@ -2912,7 +2933,7 @@ const { Console } = require('console');
                                             // }
                                         }
                                         catch (Ex) {
-                                            if (schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-11-19") >= 0 || schedule.date_gameLink.indexOf("2024-11-20") >= 0 || schedule.date_gameLink.indexOf("2024-11-21") >= 0 || schedule.date_gameLink.indexOf("2024-11-22") >= 0 || schedule.date_gameLink.indexOf("2024-11-23") >= 0)) {
+                                            if (schedule.date_gameLink && (schedule.date_gameLink.indexOf("2024-11-26") >= 0 || schedule.date_gameLink.indexOf("2024-11-27") >= 0 || schedule.date_gameLink.indexOf("2024-11-28") >= 0 || schedule.date_gameLink.indexOf("2024-11-29") >= 0 || schedule.date_gameLink.indexOf("2024-11-30") >= 0)) {
                                                 var isException = exceptions.filter(function (item) { return item == schedule.date_gameLink });
                                                 if (!isProcessed && schedule.date_gameLink && isException.length == 0) {
                                                     processing = processing + await getTableData(schedule.date_gameLink, schedule_name, year.year_id + "/" + "Conferences" + "/" + school_name + "/Games");
@@ -3026,7 +3047,7 @@ async function JSgetResultDetails() {
     var script = "var resultTable = document.getElementsByClassName('linescore nohover stats_table no_freeze')[0].getElementsByTagName('td');";
     script += "if(resultTable.length == 14){					";
     script += "	var result = {                                  ";
-    script += "		'home': {                                   ";
+    script += "		'away': {                                   ";
     script += "			'team': resultTable[1].innerText,       ";
     script += "			'Q1': resultTable[2].innerText,         ";
     script += "			'Q2': resultTable[3].innerText,         ";
@@ -3034,7 +3055,7 @@ async function JSgetResultDetails() {
     script += "			'Q4': resultTable[5].innerText,         ";
     script += "			'Final': resultTable[6].innerText       ";
     script += "		},                                          ";
-    script += "		'away': {                                   ";
+    script += "		'home': {                                   ";
     script += "			'team': resultTable[8].innerText,       ";
     script += "			'Q1': resultTable[9].innerText,         ";
     script += "			'Q2': resultTable[10].innerText,        ";
@@ -3045,7 +3066,7 @@ async function JSgetResultDetails() {
     script += "	};                                              ";
     script += "}else if(resultTable.length == 16){                 ";
     script += "	var result = {                                  ";
-    script += "		'home': {                                   ";
+    script += "		'away': {                                   ";
     script += "			'team': resultTable[1].innerText,       ";
     script += "			'Q1': resultTable[2].innerText,         ";
     script += "			'Q2': resultTable[3].innerText,         ";
@@ -3054,7 +3075,7 @@ async function JSgetResultDetails() {
     script += "			'QT1': resultTable[6].innerText,        ";
     script += "			'Final': resultTable[7].innerText       ";
     script += "		},                                          ";
-    script += "		'away': {                                   ";
+    script += "		'home': {                                   ";
     script += "			'team': resultTable[9].innerText,       ";
     script += "			'Q1': resultTable[10].innerText,        ";
     script += "			'Q2': resultTable[11].innerText,        ";
@@ -3066,7 +3087,7 @@ async function JSgetResultDetails() {
     script += "	};                                              ";
     script += "}else if(resultTable.length == 18){                 ";
     script += "	var result = {                                  ";
-    script += "		'home': {                                   ";
+    script += "		'away': {                                   ";
     script += "			'team': resultTable[1].innerText,       ";
     script += "			'Q1': resultTable[2].innerText,         ";
     script += "			'Q2': resultTable[3].innerText,         ";
@@ -3076,7 +3097,7 @@ async function JSgetResultDetails() {
     script += "			'QT2': resultTable[7].innerText,        ";
     script += "			'Final': resultTable[8].innerText       ";
     script += "		},                                          ";
-    script += "		'away': {                                   ";
+    script += "		'home': {                                   ";
     script += "			'team': resultTable[10].innerText,      ";
     script += "			'Q1': resultTable[11].innerText,        ";
     script += "			'Q2': resultTable[12].innerText,        ";

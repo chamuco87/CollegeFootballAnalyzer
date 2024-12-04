@@ -1,0 +1,240 @@
+[
+    {
+        "team": "Western Kentucky",
+        "time": "18:00",
+        "handicap": "1.90",
+        "overUnder": "O 58.0",
+        "mlOdds": "2.45"
+    },
+    {
+        "team": "Jacksonville State",
+        "time": "18:00",
+        "handicap": "1.90",
+        "overUnder": "U 58.0",
+        "mlOdds": "1.58"
+    },
+    {
+        "team": "Tulane",
+        "time": "18:00",
+        "handicap": "1.90",
+        "overUnder": "O 46.0",
+        "mlOdds": "1.47"
+    },
+    {
+        "team": "Army",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "U 46.0",
+        "mlOdds": "2.75"
+    },
+    {
+        "team": "UNLV",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "O 58.5",
+        "mlOdds": "2.60"
+    },
+    {
+        "team": "Boise State",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "U 58.5",
+        "mlOdds": "1.52"
+    },
+    {
+        "team": "Iowa State",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "O 51.0",
+        "mlOdds": "2.10"
+    },
+    {
+        "team": "Arizona State",
+        "time": "11:00",
+        "handicap": "1.90",
+        "overUnder": "U 51.0",
+        "mlOdds": "1.76"
+    },
+    {
+        "team": "Ohio",
+        "time": "11:00",
+        "handicap": "1.90",
+        "overUnder": "O 44.5",
+        "mlOdds": "2.25"
+    },
+    {
+        "team": "Miami Ohio",
+        "time": "11:00",
+        "handicap": "1.90",
+        "overUnder": "U 44.5",
+        "mlOdds": "1.66"
+    },
+    {
+        "team": "Montana",
+        "time": "11:00",
+        "handicap": "1.90",
+        "overUnder": "O 48.5",
+        "mlOdds": "10.00"
+    },
+    {
+        "team": "South Dakota State",
+        "time": "13:00",
+        "handicap": "1.90",
+        "overUnder": "U 48.5",
+        "mlOdds": "1.062"
+    },
+    {
+        "team": "Rhode Island Rams",
+        "time": "13:00",
+        "handicap": "1.90",
+        "overUnder": "O 49.5",
+        "mlOdds": "4.25"
+    },
+    {
+        "team": "Mercer",
+        "time": "13:00",
+        "handicap": "1.90",
+        "overUnder": "U 49.5",
+        "mlOdds": "1.23"
+    },
+    {
+        "team": "Villanova Wildcats",
+        "time": "13:00",
+        "handicap": "1.95",
+        "overUnder": "O 54.5",
+        "mlOdds": "3.20"
+    },
+    {
+        "team": "Incarnate Word",
+        "time": "13:00",
+        "handicap": "1.86",
+        "overUnder": "U 54.5",
+        "mlOdds": "1.37"
+    },
+    {
+        "team": "Abilene Christian",
+        "time": "13:00",
+        "handicap": "1.90",
+        "overUnder": "O 56.5",
+        "mlOdds": "11.00"
+    },
+    {
+        "team": "North Dakota State",
+        "time": "14:00",
+        "handicap": "1.90",
+        "overUnder": "U 56.5",
+        "mlOdds": "1.05"
+    },
+    {
+        "team": "Tarleton State",
+        "time": "14:00",
+        "handicap": "1.90",
+        "overUnder": "O 52.5",
+        "mlOdds": "6.25"
+    },
+    {
+        "team": "South Dakota",
+        "time": "14:00",
+        "handicap": "1.90",
+        "overUnder": "U 52.5",
+        "mlOdds": "1.13"
+    },
+    {
+        "team": "Tennessee Martin",
+        "time": "14:00",
+        "handicap": "1.90",
+        "overUnder": "O 55.5",
+        "mlOdds": "6.75"
+    },
+    {
+        "team": "Montana State",
+        "time": "14:00",
+        "handicap": "1.90",
+        "overUnder": "U 55.5",
+        "mlOdds": "1.11"
+    },
+    {
+        "team": "Georgia",
+        "time": "14:00",
+        "handicap": "1.90",
+        "overUnder": "O 49.5",
+        "mlOdds": "2.25"
+    },
+    {
+        "team": "Texas",
+        "time": "15:00",
+        "handicap": "1.90",
+        "overUnder": "U 49.5",
+        "mlOdds": "1.66"
+    },
+    {
+        "team": "Illinois State",
+        "time": "15:00",
+        "handicap": "1.95",
+        "overUnder": "O 51.5",
+        "mlOdds": "2.90"
+    },
+    {
+        "team": "UC Davis",
+        "time": "15:00",
+        "handicap": "1.86",
+        "overUnder": "U 51.5",
+        "mlOdds": "1.43"
+    },
+    {
+        "team": "Marshall",
+        "time": "15:00",
+        "handicap": "1.90",
+        "overUnder": "O 56.5",
+        "mlOdds": "2.75"
+    },
+    {
+        "team": "UL Lafayette",
+        "time": "18:30",
+        "handicap": "1.90",
+        "overUnder": "U 56.5",
+        "mlOdds": "1.47"
+    },
+    {
+        "team": "Clemson",
+        "time": "18:30",
+        "handicap": "1.90",
+        "overUnder": "O 56.5",
+        "mlOdds": "2.15"
+    },
+    {
+        "team": "SMU",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "U 56.5",
+        "mlOdds": "1.74"
+    },
+    {
+        "team": "Penn State",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "O 49.5",
+        "mlOdds": "2.45"
+    },
+    {
+        "team": "Oregon",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "U 49.5",
+        "mlOdds": "1.58"
+    },
+    {
+        "team": "Lehigh Mountain Hawks",
+        "time": "19:00",
+        "handicap": "1.90",
+        "overUnder": "O 51.5",
+        "mlOdds": "5.50"
+    },
+    {
+        "team": "Idaho",
+        "time": "20:00",
+        "handicap": "1.90",
+        "overUnder": "U 51.5",
+        "mlOdds": "1.16"
+    }
+]
